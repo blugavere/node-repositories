@@ -11,8 +11,10 @@ $ npm install --save repositories
 
 ```js
 const repositories = require('repositories');
+```
 
-Redis
+## Redis
+```js
 
 const RedisRepository = require('repositories').RedisRepository;
 
@@ -25,7 +27,7 @@ redisRepo.add({name:'Fido'}, (err, data) => {
 
 ```
 
-Sequelize (PostgreSQL)
+## Sequelize (PostgreSQL)
 
 ```js
 
