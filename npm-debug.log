@@ -1,30 +1,141 @@
 0 info it worked if it ends with ok
 1 verbose cli [ '/Users/benlugavere/.nvm/versions/node/v6.4.0/bin/node',
 1 verbose cli   '/Users/benlugavere/.nvm/versions/node/v6.4.0/bin/npm',
-1 verbose cli   'version',
-1 verbose cli   'patch' ]
+1 verbose cli   'publish' ]
 2 info using npm@3.10.3
 3 info using node@v6.4.0
-4 info git [ 'status', '--porcelain' ]
-5 verbose stack Error: Git working directory not clean.
-5 verbose stack M README.md
-5 verbose stack     at /Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/lib/version.js:247:19
-5 verbose stack     at /Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/lib/utils/no-progress-while-running.js:21:8
-5 verbose stack     at ChildProcess.exithandler (child_process.js:197:7)
-5 verbose stack     at emitTwo (events.js:106:13)
-5 verbose stack     at ChildProcess.emit (events.js:191:7)
-5 verbose stack     at maybeClose (internal/child_process.js:852:16)
-5 verbose stack     at Socket.<anonymous> (internal/child_process.js:323:11)
-5 verbose stack     at emitOne (events.js:96:13)
-5 verbose stack     at Socket.emit (events.js:188:7)
-5 verbose stack     at Pipe._handle.close [as _onclose] (net.js:492:12)
-6 verbose cwd /Users/benlugavere/Desktop/development/repositories
-7 error Darwin 15.6.0
-8 error argv "/Users/benlugavere/.nvm/versions/node/v6.4.0/bin/node" "/Users/benlugavere/.nvm/versions/node/v6.4.0/bin/npm" "version" "patch"
-9 error node v6.4.0
-10 error npm  v3.10.3
-11 error Git working directory not clean.
-11 error M README.md
-12 error If you need help, you may report this error at:
-12 error     <https://github.com/npm/npm/issues>
-13 verbose exit [ 1, true ]
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/benlugavere/Desktop/development/repositories',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/benlugavere/.npm/repositories/0.1.5/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/benlugavere/.npm correctMkdir not in flight; initializing
+10 info lifecycle repositories@0.1.5~prepublish: repositories@0.1.5
+11 verbose lifecycle repositories@0.1.5~prepublish: unsafe-perm in lifecycle true
+12 verbose lifecycle repositories@0.1.5~prepublish: PATH: /Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/bin/node-gyp-bin:/Users/benlugavere/Desktop/development/repositories/node_modules/.bin:/Users/benlugavere/.nvm/versions/node/v6.4.0/bin:/Users/benlugavere/.nvm/versions/node/v6.4.0/bin:/usr/local/bin:/usr/local/bin:/usr/local/share/npm/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet
+13 verbose lifecycle repositories@0.1.5~prepublish: CWD: /Users/benlugavere/Desktop/development/repositories
+14 silly lifecycle repositories@0.1.5~prepublish: Args: [ '-c', 'gulp prepublish' ]
+15 silly lifecycle repositories@0.1.5~prepublish: Returned: code: 0  signal: null
+16 verbose tar pack [ '/Users/benlugavere/.npm/repositories/0.1.5/package.tgz',
+16 verbose tar pack   '/Users/benlugavere/Desktop/development/repositories' ]
+17 verbose tarball /Users/benlugavere/.npm/repositories/0.1.5/package.tgz
+18 verbose folder /Users/benlugavere/Desktop/development/repositories
+19 verbose addLocalTarball adding from inside cache /Users/benlugavere/.npm/repositories/0.1.5/package.tgz
+20 verbose correctMkdir /Users/benlugavere/.npm correctMkdir not in flight; initializing
+21 silly cache afterAdd repositories@0.1.5
+22 verbose afterAdd /Users/benlugavere/.npm/repositories/0.1.5/package/package.json not in flight; writing
+23 verbose correctMkdir /Users/benlugavere/.npm correctMkdir not in flight; initializing
+24 verbose afterAdd /Users/benlugavere/.npm/repositories/0.1.5/package/package.json written
+25 silly publish { name: 'repositories',
+25 silly publish   version: '0.1.5',
+25 silly publish   description: '>',
+25 silly publish   homepage: 'https://github.com/blugavere/repositories#readme',
+25 silly publish   author: { name: 'Ben Lugavere', email: 'b.lugavere@gmail.com' },
+25 silly publish   files: [ 'dist' ],
+25 silly publish   main: 'dist/index.js',
+25 silly publish   keywords: [],
+25 silly publish   devDependencies:
+25 silly publish    { 'babel-core': '^6.11.4',
+25 silly publish      'babel-eslint': '^6.1.2',
+25 silly publish      'babel-preset-es2015': '6.9.0',
+25 silly publish      'babel-register': '^6.9.0',
+25 silly publish      del: '^2.0.2',
+25 silly publish      eslint: '^3.1.1',
+25 silly publish      'eslint-config-xo-space': '^0.14.0',
+25 silly publish      'eslint-plugin-babel': '^3.3.0',
+25 silly publish      expect: '^1.20.2',
+25 silly publish      gulp: '^3.9.0',
+25 silly publish      'gulp-babel': '^6.1.2',
+25 silly publish      'gulp-coveralls': '^0.1.0',
+25 silly publish      'gulp-eslint': '^2.0.0',
+25 silly publish      'gulp-exclude-gitignore': '^1.0.0',
+25 silly publish      'gulp-istanbul': '^1.0.0',
+25 silly publish      'gulp-line-ending-corrector': '^1.0.1',
+25 silly publish      'gulp-mocha': '^2.0.0',
+25 silly publish      'gulp-nsp': '^2.1.0',
+25 silly publish      'gulp-plumber': '^1.0.0',
+25 silly publish      isparta: '^4.0.0' },
+25 silly publish   eslintConfig: { extends: 'xo-space', env: { mocha: true } },
+25 silly publish   repository:
+25 silly publish    { type: 'git',
+25 silly publish      url: 'git+https://github.com/blugavere/repositories.git' },
+25 silly publish   scripts: { prepublish: 'gulp prepublish', test: 'gulp' },
+25 silly publish   license: 'MIT',
+25 silly publish   dependencies:
+25 silly publish    { lodash: '^4.16.2',
+25 silly publish      pg: '^6.1.0',
+25 silly publish      redis: '^2.6.2',
+25 silly publish      sequelize: '^3.24.3' },
+25 silly publish   readme: '# repositories [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]\n> \n\n## Installation\n\n```sh\n$ npm install --save repositories\n```\n\n## Usage\n\n```js\nconst repositories = require(\'repositories\');\n```\n\n## Redis\n```js\n\nconst RedisRepository = require(\'repositories\').RedisRepository;\n\nconst redisRepo = new RedisRepository(\'Cats\');\n\nredisRepo.add({name:\'Fido\'}, (err, data) => {\n  console.log(data);\n  redisRepo.disconnect();\n});\n\n```\n\n## Sequelize (PostgreSQL)\n\n```js\n\n/** requires you to install sequelize and pg */\nconst PostgreRepository = require(\'repositories\').PostgreRepository;\nconst Sequelize = require(\'sequelize\');\n\nsequelize = new Sequelize(\'test\', \'admin\', \'admin\', {\n  host: \'localhost\',\n  dialect: \'postgres\'\n});\n\nconst modelName = \'clients\';\n\nvar schema = sequelize.define(modelName, {\n  _id: {\n    type: Sequelize.INTEGER,\n    primaryKey: true,\n    autoIncrement: true\n  },\n  name: Sequelize.STRING\n});\n\nconst sequelizeRepo = new PostgreRepository(sequelize, modelName);\n\nsequelizeRepo.add({name:\'Fido\'}, (err, data) => {\n  console.log(data);\n});\n\nsequelizeRepo.findAll((err, data) => {\n  console.log(data);\n  sequelizeRepo.disconnect();\n});\n\n```\n## License\n\nMIT © [Ben Lugavere]()\n\n\n[npm-image]: https://badge.fury.io/js/repositories.svg\n[npm-url]: https://npmjs.org/package/repositories\n[travis-image]: https://travis-ci.org/blugavere/repositories.svg?branch=master\n[travis-url]: https://travis-ci.org/blugavere/repositories\n[daviddm-image]: https://david-dm.org/blugavere/repositories.svg?theme=shields.io\n[daviddm-url]: https://david-dm.org/blugavere/repositories\n[coveralls-image]: https://coveralls.io/repos/blugavere/repositories/badge.svg\n[coveralls-url]: https://coveralls.io/r/blugavere/repositories\n',
+25 silly publish   readmeFilename: 'README.md',
+25 silly publish   gitHead: 'b9a6032c59936734e4a86b65946322d73c669d44',
+25 silly publish   bugs: { url: 'https://github.com/blugavere/repositories/issues' },
+25 silly publish   _id: 'repositories@0.1.5',
+25 silly publish   _shasum: '03d05a92bb882650d5b619cf59407397602bfc01',
+25 silly publish   _from: '.' }
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name repositories
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'repositories',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'repositories',
+30 silly mapToRegistry   name: 'repositories',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/repositories
+32 verbose publish registryBase https://registry.npmjs.org/
+33 silly publish uploading /Users/benlugavere/.npm/repositories/0.1.5/package.tgz
+34 verbose request uri https://registry.npmjs.org/repositories
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 12:10:29 AM
+37 verbose request using bearer token for auth
+38 verbose request id b76c8cbf9aa2fbdf
+39 http request PUT https://registry.npmjs.org/repositories
+40 http 403 https://registry.npmjs.org/repositories
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '95',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Sun, 02 Oct 2016 04:10:30 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-jfk8126-JFK',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1475381429.691009,VS0,VE781',
+41 verbose headers   vary: 'Accept-Encoding' }
+42 verbose request invalidating /Users/benlugavere/.npm/registry.npmjs.org/repositories on PUT
+43 error publish Failed PUT 403
+44 verbose stack Error: "You cannot publish over the previously published version 0.1.5." : repositories
+44 verbose stack     at makeError (/Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+44 verbose stack     at CachingRegistryClient.<anonymous> (/Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+44 verbose stack     at Request._callback (/Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+44 verbose stack     at Request.self.callback (/Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/request/request.js:200:22)
+44 verbose stack     at emitTwo (events.js:106:13)
+44 verbose stack     at Request.emit (events.js:191:7)
+44 verbose stack     at Request.<anonymous> (/Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/request/request.js:1067:10)
+44 verbose stack     at emitOne (events.js:101:20)
+44 verbose stack     at Request.emit (events.js:188:7)
+44 verbose stack     at IncomingMessage.<anonymous> (/Users/benlugavere/.nvm/versions/node/v6.4.0/lib/node_modules/npm/node_modules/request/request.js:988:12)
+45 verbose statusCode 403
+46 verbose pkgid repositories
+47 verbose cwd /Users/benlugavere/Desktop/development/repositories
+48 error Darwin 15.6.0
+49 error argv "/Users/benlugavere/.nvm/versions/node/v6.4.0/bin/node" "/Users/benlugavere/.nvm/versions/node/v6.4.0/bin/npm" "publish"
+50 error node v6.4.0
+51 error npm  v3.10.3
+52 error code E403
+53 error "You cannot publish over the previously published version 0.1.5." : repositories
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]
