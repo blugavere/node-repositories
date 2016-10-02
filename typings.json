@@ -1,0 +1,8 @@
+{
+  "name": "repositories",
+  "dependencies": {},
+  "globalDependencies": {
+    "mongoose": "registry:dt/mongoose#4.5.9+20161001164137",
+    "sequelize": "registry:dt/sequelize#3.4.1+20160929080558"
+  }
+}

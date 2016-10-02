@@ -16,4 +16,5 @@ before_script:
   - psql -c 'create database travis;' -U postgres
   - psql -c 'CREATE ROLE admin superuser;' -U postgres
   - psql -c 'ALTER ROLE admin WITH LOGIN;' -U postgres
-  - psql -c 'create table clients (_id serial primary key, name VARCHAR(40) not null, "createdAt" timestamp not null, "updatedAt" timestamp  not null);' -U postgres
+  - psql -c 'connect admin;' -U postgres
+  - psql -c 'create table clients (_id serial primary key, name VARCHAR(40) not null, "createdAt" timestamp not null, "updatedAt" timestamp  not null);' -U admin
