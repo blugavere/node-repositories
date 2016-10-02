@@ -4,8 +4,6 @@ node_js:
   - v6
   - v5
   - v4
-  - '0.12'
-  - '0.10'
 cache:
   bundler: true
   directories:
