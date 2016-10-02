@@ -13,13 +13,16 @@ $ npm install --save repositories
 const repositories = require('repositories');
 
 Redis
+
 const RedisRepository = require('repositories').RedisRepository;
 
 const redisRepo = new RedisRepository('Cats');
 
 redisRepo.add({name:'Fido'}, (err, data) => {
-  console.log(cat);
+  console.log(data);
 });
+
+redisRepo.disconnect();
 
 ```
 ## License
