@@ -1,4 +1,4 @@
-# repositories [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/blugavere/node-repositories/badge.svg?branch=master)](https://coveralls.io/github/blugavere/node-repositories?branch=master)
+# repositories [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]](https://travis-ci.org/blugavere/node-repositories) [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/blugavere/node-repositories/badge.svg?branch=master)](https://coveralls.io/github/blugavere/node-repositories?branch=master)
 > 
 
 ## Installation 
