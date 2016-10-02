@@ -1,9 +1,5 @@
 language: node_js
 sudo: required
-addons:
-  postgresql: "9.5"
-before_install:
-  - psql --version
 node_js:
   - v6
   - v5
