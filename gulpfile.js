@@ -28,7 +28,11 @@ gulp.task('nsp', function (cb) {
 });
 
 gulp.task('pre-test', function () {
-  return gulp.src('lib/**/*.js')
+  return gulp.src([
+    'lib/**/*.js',
+    '!lib/**/*.test.js'
+  ]
+    )
     .pipe(excludeGitignore())
     .pipe(istanbul({
       includeUntested: true,
@@ -40,7 +44,7 @@ gulp.task('pre-test', function () {
 gulp.task('test', ['pre-test'], function (cb) {
   var mochaErr;
 
-  gulp.src('test/**/*.js')
+  gulp.src('lib/**/*.test.js')
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec'}))
     .on('error', function (err) {
@@ -53,7 +57,7 @@ gulp.task('test', ['pre-test'], function (cb) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['lib/**/*.js', 'test/**'], ['test']);
+  gulp.watch(['lib/**/*.js'], ['test']);
 });
 
 gulp.task('coveralls', ['test'], function () {
