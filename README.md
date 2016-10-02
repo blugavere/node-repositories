@@ -10,9 +10,17 @@ $ npm install --save repositories
 ## Usage
 
 ```js
-var repositories = require('repositories');
+const repositories = require('repositories');
 
-repositories('Rainbow');
+Redis
+const RedisRepository = require('repositories').RedisRepository;
+
+const redisRepo = new RedisRepository('Cats');
+
+redisRepo.add({name:'Fido'}, (err, data) => {
+  console.log(cat);
+});
+
 ```
 ## License
 
