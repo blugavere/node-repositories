@@ -20,9 +20,45 @@ const redisRepo = new RedisRepository('Cats');
 
 redisRepo.add({name:'Fido'}, (err, data) => {
   console.log(data);
+  redisRepo.disconnect();
 });
 
-redisRepo.disconnect();
+```
+
+Sequelize (PostgreSQL)
+
+```js
+
+/** requires you to install sequelize and pg */
+const PostgreRepository = require('repositories').PostgreRepository;
+const Sequelize = require('sequelize');
+
+sequelize = new Sequelize('test', 'admin', 'admin', {
+  host: 'localhost',
+  dialect: 'postgres'
+});
+
+const modelName = 'clients';
+
+var schema = sequelize.define(modelName, {
+  _id: {
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  name: Sequelize.STRING
+});
+
+const sequelizeRepo = new PostgreRepository(sequelize, modelName);
+
+sequelizeRepo.add({name:'Fido'}, (err, data) => {
+  console.log(data);
+});
+
+sequelizeRepo.findAll((err, data) => {
+  console.log(data);
+  sequelizeRepo.disconnect();
+});
 
 ```
 ## License
