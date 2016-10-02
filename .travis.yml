@@ -1,4 +1,9 @@
 language: node_js
+sudo: required
+addons:
+  postgresql: "9.5"
+before_install:
+  - psql --version
 node_js:
   - v6
   - v5
@@ -9,4 +14,5 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database test;' -U postgres
+  - psql -U postgres -c 'create database "test";'
   - psql 'create table clients(_id serial primary key, name VARCHAR(40) not null, "createdAt" timestamp not null, "updatedAt" timestamp  not null);'
