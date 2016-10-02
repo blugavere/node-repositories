@@ -1,7 +1,7 @@
 # repositories [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status](https://coveralls.io/repos/github/blugavere/node-repositories/badge.svg?branch=master)](https://coveralls.io/github/blugavere/node-repositories?branch=master)
 > 
 
-## Installation
+## Installation 
 
 ```sh
 $ npm install --save repositories
@@ -63,6 +63,9 @@ sequelizeRepo.findAll((err, data) => {
 });
 
 ```
+
+## Contributing
+
 ## License
 
 MIT © [Ben Lugavere]()
