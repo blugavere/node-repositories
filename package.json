@@ -46,11 +46,13 @@
   "repository": "blugavere/node-repositories",
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "test": "gulp",
+    "test:mongo": "mocha --compilers js:babel-register lib/MongoRepository.test.js --watch"
   },
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.16.2",
+    "mongodb": "^2.2.10",
     "pg": "^6.1.0",
     "redis": "^2.6.2",
     "sequelize": "^3.24.3"
