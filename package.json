@@ -8,6 +8,9 @@
     "email": "b.lugavere@gmail.com",
     "url": "http://benlugavere.com/#/"
   },
+  "contributors": [
+    { "name": "Tobias Kahse", "email": "tobias.kahse@outlook.com" }
+  ],
   "files": [
     "dist"
   ],
