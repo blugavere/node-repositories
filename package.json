@@ -13,7 +13,7 @@
   ],
   "main": "dist/index.js",
   "keywords": [
-    ""
+    "repository, generic, repo, irepository, IRepository, pattern, postgres, pg, mongoose, cassandra, redis, db, orm, nosql, query, datastore, data"
   ],
   "devDependencies": {
     "babel-core": "^6.11.4",
