@@ -14,10 +14,10 @@ const repositories = require('repositories');
 
 ## Redis
 ```js
-
+const redis = require('redis');
 const RedisRepository = require('repositories').RedisRepository;
 
-const redisRepo = new RedisRepository('Cats');
+const redisRepo = new RedisRepository(redis, 'Cats');
 
 redisRepo.add({name:'Fido'}, (err, data) => {
   console.log(data);
