@@ -9,7 +9,7 @@ describe('repositories', () => {
   });
   it('should have a redis repo!', done => {
     redisRepo.add({name: 'Fido'}, (err, data) => {
-      console.log(data);
+      //console.log(data);
       expect(data.name).toBe('Fido');
       done();
     });
