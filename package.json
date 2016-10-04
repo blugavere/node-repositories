@@ -57,8 +57,11 @@
     "test": "gulp",
     "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch",
     "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch",
-    "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch"
+    "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch",
+    "test:serializers": "mocha --require babel-register --require babel-polyfill lib/Serializers/*.test.js --watch"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "ini": "^1.3.4"
+  }
 }
