@@ -64,8 +64,6 @@ sequelizeRepo.findAll((err, data) => {
 
 ```
 
-```
-
 ## Cassandra
 ```js
 
