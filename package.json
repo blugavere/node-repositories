@@ -56,7 +56,8 @@
     "prepublish": "gulp prepublish",
     "test": "gulp",
     "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch",
-    "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch"
+    "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch",
+    "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch"
   },
   "license": "MIT",
   "dependencies": {}
