@@ -113,6 +113,8 @@ cassandra.connect(() => {
 
 ## Contributing
 
+Make sure the tests pass :D
+
 ## License
 
 MIT © [Ben Lugavere]()
