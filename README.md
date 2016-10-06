@@ -110,6 +110,31 @@ cassandra.connect(() => {
 
 ```
 
+## Filesystem Repository
+
+Create a database out of a local file. Configurable for different file formats.
+
+```js
+
+const FSRepository = require('repositories').FSRepository;
+const repo = new FSRepository('./data.json');
+
+//default json format
+const cat = { name : 'Fido' };
+
+repo.add(cat, (err, data) => {
+  console.log(data);
+  repo.disconnect(); //not really
+});
+
+//ini istead of json
+const INISerializer = require('repositories/lib/serializers/INISerializer');
+repo.use(new INISerializer());
+
+//...
+
+```
+
 
 ## Contributing
 
