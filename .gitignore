@@ -3,3 +3,4 @@ coverage
 dist
 typings
 lib/data.json
+*.log
