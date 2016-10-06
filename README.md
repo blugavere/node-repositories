@@ -135,6 +135,26 @@ repo.use(new INISerializer());
 
 ```
 
+## Mongoose Repository
+
+```js
+const mongoose = require('mongoose');
+const modelName = 'cats';
+const schema = new mongoose.Schema({
+  name: { type: String }
+});
+const MongooseRepository = require('repositories').MongooseRepository;
+const repo = new MongooseRepository(mongoose, modelName);
+
+//default json format
+const cat = { name : 'Fido' };
+
+repo.add(cat, (err, data) => {
+  console.log(data);
+  repo.disconnect();
+});
+
+```
 
 ## Contributing
 

@@ -47,6 +47,7 @@
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
     "isparta": "^4.0.0",
+    "mongoose": "^4.6.3",
     "pg": "^6.1.0",
     "redis": "^2.6.2",
     "sequelize": "^3.24.3"
@@ -57,6 +58,7 @@
     "test": "gulp",
     "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch",
     "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch",
+    "test:mongoose": "mocha --require babel-register --require babel-polyfill lib/MongooseRepository.test.js --watch",
     "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch",
     "test:serializers": "mocha --require babel-register --require babel-polyfill lib/Serializers/*.test.js --watch"
   },
