@@ -1,7 +1,7 @@
 {
   "name": "repositories",
   "version": "0.5.2",
-  "description": "",
+  "description": "Generic IRepository implementation for common data stores in node.js",
   "homepage": "",
   "author": {
     "name": "Ben Lugavere",
