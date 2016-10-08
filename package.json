@@ -1,6 +1,6 @@
 {
   "name": "repositories",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "",
   "homepage": "",
   "author": {
@@ -9,7 +9,10 @@
     "url": "http://benlugavere.com/#/"
   },
   "contributors": [
-    { "name": "Tobias Kahse", "email": "tobias.kahse@outlook.com" }
+    {
+      "name": "Tobias Kahse",
+      "email": "tobias.kahse@outlook.com"
+    }
   ],
   "files": [
     "dist"
