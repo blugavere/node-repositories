@@ -156,6 +156,30 @@ repo.add(cat, (err, data) => {
 
 ```
 
+## MongoDB Native Repository
+
+```js
+const MongoClient = require('mongodb').MongoClient;
+const collection = 'cats';
+const MongoRepository = require('repositories').MongoRepository;
+
+let repo;
+
+MongoClient.connect('mongodb://admin:admin@localhost:27017/travis', (err, db) => {
+  if (err) {
+    // Handle error and return (or throw)
+  }
+
+  repo = new MongoRepository(db, collection);
+
+  repo.add({name:'Fido'}, (err, data) => {
+    console.log(data);
+    repo.disconnect();
+  });
+}
+
+```
+
 ## Contributing
 
 Make sure the tests pass :D
