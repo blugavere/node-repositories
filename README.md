@@ -15,9 +15,10 @@ const repositories = require('repositories');
 ## Redis
 ```js
 
+const redis = require('redis');
 const RedisRepository = require('repositories').RedisRepository;
 
-const redisRepo = new RedisRepository('Cats');
+const redisRepo = new RedisRepository(redis, 'Cats');
 
 redisRepo.add({name:'Fido'}, (err, data) => {
   console.log(data);
@@ -63,7 +64,101 @@ sequelizeRepo.findAll((err, data) => {
 
 ```
 
+## Cassandra
+```js
+
+const CassandraRepository = require('repositories').CassandraRepository;
+const Cassandra = require('express-cassandra');
+
+const cassandra = Cassandra.createClient({
+  clientOptions: {
+    contactPoints: ['127.0.0.1'],
+    protocolOptions: { port: 9042 },
+    keyspace: 'mykeyspace',
+    queryOptions: { consistency: Cassandra.consistencies.one }
+  },
+  ormOptions: {
+    defaultReplicationStrategy: {
+      class: 'SimpleStrategy',
+      replication_factor: 1
+    },
+    migration: 'safe',
+    createKeyspace: true
+  }
+});
+
+export const modelName = 'Cats';
+export const schema = {
+  fields: {
+    _id: 'text',
+    name: 'text'
+  },
+  key: ['_id']
+};
+
+let cassandraRepo;
+cassandra.connect(() => {
+  cassandra.loadSchema(modelName, schema);
+  cassandraRepo = new CassandraRepository(cassandra, modelName);
+  
+  cassandraRepo.add({name:'Fido'}, (err, data) => {
+    console.log(data);
+    cassandraRepo.disconnect();
+  });
+});
+
+
+```
+
+## Filesystem Repository
+
+Create a database out of a local file. Configurable for different file formats.
+
+```js
+
+const FSRepository = require('repositories').FSRepository;
+const repo = new FSRepository('./data.json');
+
+//default json format
+const cat = { name : 'Fido' };
+
+repo.add(cat, (err, data) => {
+  console.log(data);
+  repo.disconnect(); //not really
+});
+
+//ini istead of json
+const INISerializer = require('repositories/lib/serializers/INISerializer');
+repo.use(new INISerializer());
+
+//...
+
+```
+
+## Mongoose Repository
+
+```js
+const mongoose = require('mongoose');
+const modelName = 'cats';
+const schema = new mongoose.Schema({
+  name: { type: String }
+});
+const MongooseRepository = require('repositories').MongooseRepository;
+const repo = new MongooseRepository(mongoose, modelName);
+
+//default json format
+const cat = { name : 'Fido' };
+
+repo.add(cat, (err, data) => {
+  console.log(data);
+  repo.disconnect();
+});
+
+```
+
 ## Contributing
+
+Make sure the tests pass :D
 
 ## License
 
