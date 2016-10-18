@@ -47,7 +47,10 @@ gulp.task('test', ['pre-test'], function (cb) {
 
   gulp.src('lib/**/*.test.js')
     .pipe(plumber())
-    .pipe(mocha({reporter: 'spec'}))
+    .pipe(mocha({
+      reporter: 'spec',
+      delay: true
+    }))
     .on('error', function (err) {
       mochaErr = err;
     })
