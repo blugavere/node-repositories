@@ -12,6 +12,20 @@ $ npm install --save repositories
 const repositories = require('repositories');
 ```
 
+## AJAX
+
+Store some data on a remote server implementing a RESTful API.
+
+```js
+const AJAXRepository = require('repositories').AJAXRepository;
+const ajaxRepo = new AJAXRepository('http://localhost:3000/api/cats');
+
+ajaxRepo.add({name:'Fido'}, (err, data) => {
+  console.log(data);
+});
+
+```
+
 ## Redis
 ```js
 
