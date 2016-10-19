@@ -1,6 +1,6 @@
 {
   "name": "repositories",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Generic IRepository implementation for common data stores in node.js",
   "homepage": "",
   "author": {
