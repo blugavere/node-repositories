@@ -133,7 +133,7 @@ Create a database out of a local file. Configurable for different file formats.
 const FSRepository = require('repositories').FSRepository;
 const repo = new FSRepository('./data.json');
 
-//default json format
+// default json format
 const cat = { name : 'Fido' };
 
 repo.add(cat, (err, data) => {
@@ -141,11 +141,11 @@ repo.add(cat, (err, data) => {
   repo.disconnect(); //not really
 });
 
-//ini istead of json
+// ini istead of json
 const INISerializer = require('repositories/lib/serializers/INISerializer');
 repo.use(new INISerializer());
 
-//...
+// ...
 
 ```
 
@@ -157,10 +157,13 @@ const modelName = 'cats';
 const schema = new mongoose.Schema({
   name: { type: String }
 });
+mongoose.model(modelName, schema);
+mongoose.connect('mongodb://localhost');
+
 const MongooseRepository = require('repositories').MongooseRepository;
 const repo = new MongooseRepository(mongoose, modelName);
 
-//default json format
+// default json format
 const cat = { name : 'Fido' };
 
 repo.add(cat, (err, data) => {
