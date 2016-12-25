@@ -3,6 +3,19 @@
   "version": "0.6.3",
   "description": "Generic IRepository implementation for common data stores in node.js",
   "homepage": "",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp",
+    "test:mongo": "mocha --compilers js:babel-register lib/MongoRepository.test.js --watch",
+    "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch",
+    "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch",
+    "test:postgres": "mocha --require babel-register --require babel-polyfill lib/PostgreRepository.test.js --watch",
+    "test:redis": "mocha --require babel-register --require babel-polyfill lib/RedisRepository.test.js --watch",
+    "test:mongoose": "mocha --require babel-register --require babel-polyfill lib/MongooseRepository.test.js --watch",
+    "test:ajax": "mocha --require babel-register --require babel-polyfill ./lib/AJAXRepository.test.js --watch",
+    "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch",
+    "test:serializers": "mocha --require babel-register --require babel-polyfill lib/Serializers/*.test.js --watch"
+  },
   "author": {
     "name": "Ben Lugavere",
     "email": "b.lugavere@gmail.com",
@@ -63,19 +76,6 @@
     "sequelize": "^3.24.3"
   },
   "repository": "blugavere/node-repositories",
-  "scripts": {
-    "prepublish": "gulp prepublish",
-    "test": "gulp",
-    "test:mongo": "mocha --compilers js:babel-register lib/MongoRepository.test.js --watch --delay",
-    "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch --delay",
-    "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --delay --watch",
-    "test:postgres": "mocha --require babel-register --require babel-polyfill lib/PostgreRepository.test.js --watch",
-    "test:redis": "mocha --require babel-register --require babel-polyfill lib/RedisRepository.test.js --watch",
-    "test:mongoose": "mocha --require babel-register --require babel-polyfill lib/MongooseRepository.test.js --watch --delay",
-    "test:ajax": "mocha --require babel-register --require babel-polyfill ./lib/AJAXRepository.test.js --watch",
-    "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch",
-    "test:serializers": "mocha --require babel-register --require babel-polyfill lib/Serializers/*.test.js --watch"
-  },
   "license": "MIT",
   "dependencies": {
     "axios": "^0.15.0",

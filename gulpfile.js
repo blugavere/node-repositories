@@ -13,7 +13,7 @@ var isparta = require('isparta');
 
 // Initialize the babel transpiler so ES2015 files gets compiled
 // when they're loaded
-require('babel-register');
+require('babel-register')();
 require('babel-polyfill');
 
 gulp.task('static', function () {
@@ -48,8 +48,7 @@ gulp.task('test', ['pre-test'], function (cb) {
   gulp.src('lib/**/*.test.js')
     .pipe(plumber())
     .pipe(mocha({
-      reporter: 'spec',
-      delay: true
+      reporter: 'spec'
     }))
     .on('error', function (err) {
       mochaErr = err;
@@ -80,7 +79,7 @@ gulp.task('babel', ['clean'], function () {
 });
 
 gulp.task('clean', function () {
-  return del('dist');
+  return del(['dist', 'coverage']);
 });
 
 gulp.task('prepublish', ['nsp', 'babel']);
