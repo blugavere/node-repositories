@@ -27,8 +27,10 @@
       "email": "tobias.kahse@outlook.com"
     }
   ],
+  "typings": "repositories.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "repositories.d.ts"
   ],
   "main": "dist/index.js",
   "keywords": [
