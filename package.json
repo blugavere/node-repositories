@@ -6,12 +6,12 @@
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp",
-    "test:mongo": "mocha --compilers js:babel-register lib/MongoRepository.test.js --watch --delay",
-    "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch --delay",
-    "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --delay --watch",
+    "test:mongo": "mocha --compilers js:babel-register lib/MongoRepository.test.js --watch",
+    "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch",
+    "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch",
     "test:postgres": "mocha --require babel-register --require babel-polyfill lib/PostgreRepository.test.js --watch",
     "test:redis": "mocha --require babel-register --require babel-polyfill lib/RedisRepository.test.js --watch",
-    "test:mongoose": "mocha --require babel-register --require babel-polyfill lib/MongooseRepository.test.js --watch --delay",
+    "test:mongoose": "mocha --require babel-register --require babel-polyfill lib/MongooseRepository.test.js --watch",
     "test:ajax": "mocha --require babel-register --require babel-polyfill ./lib/AJAXRepository.test.js --watch",
     "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch",
     "test:serializers": "mocha --require babel-register --require babel-polyfill lib/Serializers/*.test.js --watch"
