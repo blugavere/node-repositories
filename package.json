@@ -1,6 +1,6 @@
 {
   "name": "repositories",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "Generic IRepository implementation for common data stores in node.js",
   "homepage": "",
   "scripts": {
@@ -51,7 +51,6 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.9.0",
-    "colors": "^1.1.2",
     "del": "^2.0.2",
     "eslint": "^3.1.1",
     "eslint-config-xo-space": "^0.14.0",
@@ -73,7 +72,6 @@
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.3",
     "npm-run-all": "^3.1.1",
-    "pg": "^6.1.0",
     "redis": "^2.6.2",
     "sequelize": "^3.24.3"
   },
