@@ -1,11 +1,12 @@
 {
   "name": "repositories",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Generic IRepository implementation for common data stores in node.js",
   "homepage": "",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp",
+    "lint": "./node_modules/.bin/eslint ./lib",
     "test:mongo": "mocha --compilers js:babel-register lib/MongoRepository.test.js --watch",
     "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch",
     "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch",
