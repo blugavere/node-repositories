@@ -1,0 +1,25 @@
+version: '2'
+services:
+    app:
+        build: .
+        depends_on:
+          - mongodb
+          - redis
+          - postgres
+          - cassandra
+        volumes: 
+            - .:/app
+        command: npm test
+    mongodb:
+        hostname: mongo
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+    cassandra:
+      image: bitnami/cassandra:latest
+    redis:
+      image: bitnami/redis:latest
+      ports:
+          - "6379"
+    postgres:
+      image: bitnami/postgresql:latest
