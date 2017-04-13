@@ -25,15 +25,16 @@ gulp.task('static', function () {
 });
 
 gulp.task('nsp', function (cb) {
-  nsp({package: path.resolve('package.json')}, cb);
+  nsp({
+    package: path.resolve('package.json')
+  }, cb);
 });
 
 gulp.task('pre-test', function () {
   return gulp.src([
-    'lib/**/*.js',
-    '!lib/**/*.test.js'
-  ]
-    )
+      'lib/**/*.js',
+      '!lib/**/*.test.js'
+    ])
     .pipe(excludeGitignore())
     .pipe(istanbul({
       includeUntested: true,
@@ -42,21 +43,17 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['pre-test'], function (cb) {
-  var mochaErr;
+gulp.task('test', ['pre-test'], () => {
 
-  gulp.src('lib/**/*.test.js')
+  gulp.src([
+      'lib/**/*.test.js',
+      'test/**/*.js'
+    ])
     .pipe(plumber())
     .pipe(mocha({
       reporter: 'spec'
     }))
-    .on('error', function (err) {
-      mochaErr = err;
-    })
-    .pipe(istanbul.writeReports())
-    .on('end', function () {
-      cb(mochaErr);
-    });
+    .pipe(istanbul.writeReports());
 });
 
 gulp.task('watch', function () {
