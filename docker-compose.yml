@@ -3,14 +3,14 @@ services:
     app:
         build: .
         depends_on:
-          - mongodb
+          - mongo
           - redis
           - postgres
           - cassandra
         volumes: 
             - .:/app
         command: npm test
-    mongodb:
+    mongo:
         hostname: mongo
         image: mongo:latest
         ports:
