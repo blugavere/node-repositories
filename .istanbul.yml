@@ -1,0 +1,3 @@
+
+instrumentation:
+    excludes: ['lib/**/*.test.js', 'lib/test/**']
