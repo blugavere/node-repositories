@@ -1,12 +1,13 @@
 'use strict';
 
-const Repo = require('../lib/MongooseRepository');
+const Repo = require('../lib').MongooseRepository;
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-const Assertions = require('../lib/test/Assertions');
+const Assertions = require('./assertions');
 
-export const modelName = 'cats';
-export const schema = new mongoose.Schema({
+const modelName = 'cats';
+
+const schema = new mongoose.Schema({
   name: {
     type: String
   }
@@ -16,7 +17,7 @@ if (!mongoose.modelSchemas[modelName]) {
   mongoose.model(modelName, schema);
 }
 
-/** 
+/**
  * NODE_ENV=test mocha --require babel-register test/mongoose.js --watch
  */
 
