@@ -12,7 +12,6 @@ services:
   - mongodb
   - postgresql
   - redis-server
-  - cassandra
 before_script:
   - psql -c 'create database test;' -U postgres
   - psql -c 'create database travis;' -U postgres
