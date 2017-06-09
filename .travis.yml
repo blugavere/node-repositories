@@ -22,7 +22,6 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
-
 before_install:
   - sudo update-java-alternatives -s java-8-oracle
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
