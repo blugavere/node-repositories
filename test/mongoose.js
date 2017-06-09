@@ -13,35 +13,28 @@ const schema = new mongoose.Schema({
   }
 });
 
-if (!mongoose.modelSchemas[modelName]) {
-  mongoose.model(modelName, schema);
-}
-
-/**
- * NODE_ENV=test mocha --require babel-register test/mongoose.js --watch
- */
-
+// mocha --require babel-register lib/MongooseRepository.test.js
 describe('Mongoose Repository', () => {
   let repo;
-  before(done => {
+  before(() => {
+    mongoose.connect('mongodb://localhost/test');
+    mongoose.model(modelName, schema);
     repo = new Repo(mongoose, modelName);
-    const db = mongoose.connection;
-    db.once('open', function () {
-      done();
-    });
+  });
 
-    mongoose.connection.close(() => {
-      mongoose.connect('mongodb://localhost/test');
-    });
+  after(() => {
+    mongoose.connection.close();
   });
 
   describe('generic assertions', () => {
     const client = {
       name: 'foo'
     };
+
     const bag = {
       client
     };
+
     Assertions.assertions.forEach(x => {
       it(x.assertion, done => {
         x.method(repo, bag)(done);
