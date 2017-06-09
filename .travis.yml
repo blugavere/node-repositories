@@ -19,3 +19,16 @@ before_script:
   - psql -c 'CREATE ROLE admin superuser;' -U postgres
   - psql -c 'ALTER ROLE admin WITH LOGIN;' -U postgres
   - psql -c 'create table clients (_id serial primary key, name VARCHAR(40) not null, "createdAt" timestamp not null, "updatedAt" timestamp  not null);' -U travis
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+
+before_install:
+  - sudo update-java-alternatives -s java-8-oracle
+  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+  - java -version
+  - sudo rm -rf /var/lib/cassandra/*
+  - wget http://www.us.apache.org/dist/cassandra/3.3/apache-cassandra-3.3-bin.tar.gz && tar -xvzf apache-cassandra-3.3-bin.tar.gz
+  - sudo sh ./apache-cassandra-3.3/bin/cassandra -R
+  - sleep 20
