@@ -9,6 +9,7 @@ cache:
   directories:
   - node_modules
 services:
+  - mongodb
   - postgresql
   - redis-server
 before_script:
@@ -19,14 +20,12 @@ before_script:
   - psql -c 'create table clients (_id serial primary key, name VARCHAR(40) not null, "createdAt" timestamp not null, "updatedAt" timestamp  not null);' -U travis
 addons:
   apt:
+    sources:
+      - mongodb-3.0-precise
     packages:
       - oracle-java8-installer
+      - mongodb-org
 before_install:
-  - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-  - echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
-  - sudo apt-get update
-  - sudo apt-get install -y mongodb-org=2.6.6 mongodb-org-server=2.6.6 mongodb-org-shell=2.6.6 mongodb-org-mongos=2.6.6 mongodb-org-tools=2.6.6
-  - mongo --version
   - sudo update-java-alternatives -s java-8-oracle
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
   - java -version
