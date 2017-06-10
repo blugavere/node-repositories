@@ -41,7 +41,6 @@
     "del": "^2.0.2",
     "eslint": "^3.1.1",
     "eslint-config-xo-space": "^0.14.0",
-    "eslint-plugin-react": "^6.3.0",
     "expect": "^1.20.2",
     "express-cassandra": "^1.4.2",
     "gulp": "^3.9.0",
