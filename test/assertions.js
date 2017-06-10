@@ -2,6 +2,8 @@
 
 const expect = require('expect');
 
+const debug = false;
+
 const add = (repo, bag) => {
   return done => {
     repo.add(bag.client, (err, res) => {
@@ -20,6 +22,9 @@ const findAll = repo => {
       expect(res).toExist();
       expect(Array.isArray(res)).toBe(true);
       expect(typeof res[0]._id).toNotBe('object');
+      if (debug) {
+        console.log(res);
+      }
       done();
     });
   };
@@ -49,6 +54,9 @@ const update = (repo, bag) => {
       expect(res).toExist();
       expect(typeof res._id).toNotBe('object');
       expect(res.name).toBe('baz');
+      if (debug) {
+        console.log(res);
+      }
       done();
     });
   };

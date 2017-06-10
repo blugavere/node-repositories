@@ -4,17 +4,16 @@
   "description": "Generic IRepository implementation for common data stores in node.js",
   "homepage": "",
   "scripts": {
+    "docker": "docker-compose -f docker-compose.yml up",
     "prepublish": "gulp prepublish",
     "test": "gulp",
     "lint": "./node_modules/.bin/eslint ./lib",
-    "test:mongo": "mocha --compilers js:babel-register lib/MongoRepository.test.js --watch",
-    "test:repositories": "mocha --require babel-register --require babel-polyfill lib/*.test.js --watch",
-    "test:cassandra": "mocha --require babel-register --require babel-polyfill lib/CassandraRepository.test.js --watch",
+    "test:mongo": "mocha lib/MongoRepository.test.js --watch",
+    "test:repositories": "mocha lib/*.test.js --watch",
     "test:postgres": "mocha --require babel-register --require babel-polyfill lib/PostgreRepository.test.js --watch",
-    "test:redis": "mocha --require babel-register --require babel-polyfill lib/RedisRepository.test.js --watch",
-    "test:mongoose": "mocha --require babel-register --require babel-polyfill lib/MongooseRepository.test.js --watch",
-    "test:ajax": "mocha --require babel-register --require babel-polyfill ./lib/AJAXRepository.test.js --watch",
-    "test:fs": "mocha --require babel-register --require babel-polyfill lib/FSRepository.test.js --watch",
+    "test:redis": "mocha lib/RedisRepository.test.js --watch",
+    "test:ajax": "mocha ./lib/AJAXRepository.test.js --watch",
+    "test:fs": "mocha lib/FSRepository.test.js --watch",
     "test:serializers": "mocha --require babel-register --require babel-polyfill lib/Serializers/*.test.js --watch"
   },
   "author": {
@@ -39,20 +38,9 @@
   ],
   "devDependencies": {
     "axios-mock-adapter": "^1.7.0",
-    "babel-core": "^6.11.4",
-    "babel-eslint": "^6.1.2",
-    "babel-plugin-transform-class-properties": "^6.11.5",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "babel-plugin-transform-object-assign": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-polyfill": "^6.13.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.5.0",
-    "babel-register": "^6.9.0",
     "del": "^2.0.2",
     "eslint": "^3.1.1",
     "eslint-config-xo-space": "^0.14.0",
-    "eslint-plugin-babel": "^3.3.0",
     "expect": "^1.20.2",
     "express-cassandra": "^1.4.2",
     "gulp": "^3.9.0",
@@ -66,19 +54,22 @@
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
     "isparta": "^4.0.0",
+    "mock-mongoose-model": "0.0.2",
     "mongodb": "^2.2.10",
     "mongoose": "^4.6.3",
     "npm-run-all": "^3.1.1",
     "pg": "^6.2.4",
     "redis": "^2.6.2",
     "sequelize": "^3.24.3",
-    "uuid": "^3.0.1"
+    "sinon": "^2.1.0"
   },
   "repository": "blugavere/node-repositories",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.2",
+    "cassandra-repository": "0.0.0",
     "ini": "^1.3.4",
+    "mongoose-repository": "0.0.0",
     "stack-trace": "0.0.9"
   }
 }

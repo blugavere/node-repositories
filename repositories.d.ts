@@ -2,13 +2,13 @@
 
 export class AJAXRepository {
     constructor(urlRoot: any, ...args: any[]);
-    add(entity: any, cb: any): any;
-    clear(cb: any): void;
+    add(entity: any, cb: () => any): any;
+    clear(cb: () => any): void;
     disconnect(): any;
-    findAll(cb: any): any;
-    findOne(id: any, cb: any): any;
-    remove(id: any, cb: any): any;
-    update(data: any, cb: any): any;
+    findAll(cb: () => any): any;
+    findOne(id: string, cb: () => any): any;
+    remove(id: string, cb: () => any): any;
+    update(data: any, cb: () => any): any;
     static defaultMaxListeners: number;
     static init(): void;
     static listenerCount(emitter: any, type: any): any;
@@ -16,13 +16,13 @@ export class AJAXRepository {
 }
 export class CassandraRepository {
     constructor(client: any, modelType: any, ...args: any[]);
-    add(entity: any, cb: any): any;
-    clear(cb: any): void;
+    add(entity: any, cb: () => any): any;
+    clear(cb: () => any): void;
     disconnect(): void;
-    findAll(cb: any): any;
-    findOne(id: any, cb: any): any;
-    remove(id: any, cb: any): any;
-    update(data: any, cb: any): any;
+    findAll(cb: () => any): any;
+    findOne(id: string, cb: () => any): any;
+    remove(id: string, cb: () => any): any;
+    update(data: any, cb: () => any): any;
     static defaultMaxListeners: number;
     static init(): void;
     static listenerCount(emitter: any, type: any): any;
@@ -30,17 +30,17 @@ export class CassandraRepository {
 }
 export class FSRepository {
     constructor(filePath: any, strategy: any, ...args: any[]);
-    add(entity: any, cb: any): any;
-    clear(cb: any): void;
+    add(entity: any, cb: () => any): any;
+    clear(cb: () => any): void;
     disconnect(): void;
-    findAll(cb: any): any;
-    findOne(id: any, cb: any): any;
-    read(path: any, cb: any): any;
-    remove(id: any, cb: any): any;
+    findAll(cb: () => any): any;
+    findOne(id: string, cb: () => any): any;
+    read(path: any, cb: () => any): any;
+    remove(id: string, cb: () => any): any;
     setStrategy(strategy: any): void;
-    update(entity: any, cb: any): any;
+    update(entity: any, cb: () => any): any;
     use(strategy: any): void;
-    write(path: any, data: any, cb: any): any;
+    write(path: any, data: any, cb: () => any): any;
     static defaultMaxListeners: number;
     static init(): void;
     static listenerCount(emitter: any, type: any): any;
@@ -48,13 +48,13 @@ export class FSRepository {
 }
 export class MongoRepository {
     constructor(connection: any, collection: any, ...args: any[]);
-    add(entity: any, cb: any): any;
-    clear(cb: any): any;
+    add(entity: any, cb: () => any): any;
+    clear(cb: () => any): any;
     disconnect(): void;
-    findAll(cb: any): any;
-    findOne(id: any, cb: any): any;
-    remove(id: any, cb: any): any;
-    update(entity: any, cb: any): any;
+    findAll(cb: () => any): any;
+    findOne(id: string, cb: () => any): any;
+    remove(id: string, cb: () => any): any;
+    update(entity: any, cb: () => any): any;
     static defaultMaxListeners: number;
     static init(): void;
     static listenerCount(emitter: any, type: any): any;
@@ -62,13 +62,13 @@ export class MongoRepository {
 }
 export class MongooseRepository {
     constructor(mongoose: any, modelName: any, ...args: any[]);
-    add(entity: any, cb: any): any;
-    clear(cb: any): void;
-    disconnect(cb: any): void;
-    findAll(cb: any): any;
-    findOne(id: any, cb: any): any;
-    remove(id: any, cb: any): any;
-    update(entity: any, cb: any): any;
+    add(entity: any, cb: () => any): any;
+    clear(cb: () => any): void;
+    disconnect(cb: () => any): void;
+    findAll(cb: () => any): any;
+    findOne(id: string, cb: () => any): any;
+    remove(id: string, cb: () => any): any;
+    update(entity: any, cb: () => any): any;
     static defaultMaxListeners: number;
     static init(): void;
     static listenerCount(emitter: any, type: any): any;
@@ -76,13 +76,13 @@ export class MongooseRepository {
 }
 export class PostgreRepository {
     constructor(sequelize: any, modelType: any, ...args: any[]);
-    add(entity: any, cb: any): any;
-    clear(cb: any): any;
+    add(entity: any, cb: () => any): any;
+    clear(cb: () => any): any;
     disconnect(): void;
-    findAll(cb: any): any;
-    findOne(id: any, cb: any): any;
-    remove(id: any, cb: any): any;
-    update(entity: any, cb: any): any;
+    findAll(cb: () => any): any;
+    findOne(id: string, cb: () => any): any;
+    remove(id: string, cb: () => any): any;
+    update(entity: any, cb: () => any): any;
     static defaultMaxListeners: number;
     static init(): void;
     static listenerCount(emitter: any, type: any): any;
@@ -90,13 +90,13 @@ export class PostgreRepository {
 }
 export class RedisRepository {
     constructor(redis: any, collection: any, ...args: any[]);
-    add(entity: any, cb: any): any;
-    clear(cb: any): void;
+    add(entity: any, cb: () => any): any;
+    clear(cb: () => any): void;
     disconnect(): void;
-    findAll(cb: any): any;
-    findOne(id: any, cb: any): any;
-    remove(id: any, cb: any): any;
-    update(entity: any, cb: any): any;
+    findAll(cb: () => any): any;
+    findOne(id: string, cb: () => any): any;
+    remove(id: string, cb: () => any): any;
+    update(entity: any, cb: () => any): any;
     static defaultMaxListeners: number;
     static init(): void;
     static listenerCount(emitter: any, type: any): any;
