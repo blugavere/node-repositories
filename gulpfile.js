@@ -34,7 +34,9 @@ gulp.task('nsp', function (cb) {
 gulp.task('pre-test', function () {
   return gulp.src([
       'lib/**/*.js',
-      '!lib/**/*.test.js'
+      '!lib/**/*.test.js',
+      'packages/*/lib/**/*.js',
+      '!packages/*/lib/**/*.test.js'
     ])
     .pipe(excludeGitignore())
     .pipe(istanbul({
@@ -48,6 +50,7 @@ gulp.task('test', ['pre-test'], cb => {
   var mochaErr;
   gulp.src([
       'lib/**/*.test.js',
+      'packages/**/*.test.js',
       'test/**/*.js'
     ])
     .pipe(plumber())
