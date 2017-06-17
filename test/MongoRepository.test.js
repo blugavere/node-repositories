@@ -2,9 +2,9 @@
 
 const expect = require('expect');
 const MongoClient = require('mongodb').MongoClient;
-const MongoRepository = require('./MongoRepository');
+const MongoRepository = require('../').MongoRepository;
 const Repo = MongoRepository;
-const Assertions = require('../test/assertions');
+const assertions = require('./assertions');
 
 const collection = 'clients';
 
@@ -44,7 +44,7 @@ describe('MongoDB Repository', () => {
     const bag = {
       client
     };
-    Assertions.assertions.forEach(x => {
+    assertions.assertions.forEach(x => {
       it(x.assertion, done => {
         x.method(repo, bag)(done);
       });

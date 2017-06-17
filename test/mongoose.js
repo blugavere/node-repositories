@@ -1,9 +1,10 @@
 'use strict';
 
+const expect = require('expect');
 const Repo = require('../lib').MongooseRepository;
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-const Assertions = require('./assertions');
+const assertions = require('./assertions');
 
 const modelName = 'cats';
 
@@ -35,10 +36,14 @@ describe('Mongoose Repository', () => {
       client
     };
 
-    Assertions.assertions.forEach(x => {
+    assertions.assertions.forEach(x => {
       it(x.assertion, done => {
         x.method(repo, bag)(done);
       });
+    });
+
+    it('should have a count func', () => {
+      expect(repo.count).toExist();
     });
   });
 });
