@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
   }
 });
 
-// mocha --require babel-register lib/MongooseRepository.test.js
+// mocha test/mongoose.js
 describe('Mongoose Repository', () => {
   let repo;
   before(() => {

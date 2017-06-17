@@ -1,0 +1,3 @@
+[submodule "packages/mongoose-repository"]
+	path = packages/mongoose-repository
+	url = https://github.com/blugavere/mongoose-repository.git
