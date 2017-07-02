@@ -18,7 +18,7 @@ const newer = require('gulp-newer');
 const gutil = require('gulp-util');
 
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+  return gulp.src(['**/*.js'])
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -47,7 +47,7 @@ gulp.task('pre-test', function () {
 });
 
 gulp.task('test', ['pre-test'], cb => {
-  var mochaErr;
+  let mochaErr;
   gulp.src([
       'lib/**/*.test.js',
       'packages/**/*.test.js',

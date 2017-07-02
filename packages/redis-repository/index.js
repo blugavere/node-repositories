@@ -3,12 +3,9 @@
 
 const autoBind = require('auto-bind');
 const uuid = require('uuid');
-const IRepository = require('./IRepository');
 
-class RedisRepository extends IRepository {
+class RedisRepository {
   constructor(redis, collection) {
-    super(redis, collection);
-
     if (!redis || !collection) {
       throw new Error('Collection is a required param.');
     }

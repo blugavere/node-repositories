@@ -2,8 +2,8 @@
 'use strict';
 
 const redis = require('redis');
-const Repo = require('./RedisRepository');
-const Assertions = require('../test/assertions');
+const Repo = require('.');
+const Assertions = require('../../test/assertions');
 
 describe('Redis Repository', () => {
   let repo = new Repo(redis, 'client');
