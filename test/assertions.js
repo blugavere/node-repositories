@@ -16,12 +16,15 @@ const add = (repo, bag) => {
     });
   };
 };
-const findAll = repo => {
+const findAll = (repo, bag) => {
   return done => {
     repo.findAll((err, res) => {
       expect(res).toExist();
       expect(Array.isArray(res)).toBe(true);
       expect(typeof res[0]._id).toNotBe('object');
+      expect(typeof res[0]._id).toExist();
+      expect(res[0].name).toBe(bag.client.name);
+
       if (debug) {
         console.log(res);
       }

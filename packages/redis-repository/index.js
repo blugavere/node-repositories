@@ -1,8 +1,10 @@
 
 'use strict';
 
+const async = require('async');
 const autoBind = require('auto-bind');
 const uuid = require('uuid');
+const redis = require('redis');
 
 class RedisRepository {
   constructor(redis, collection) {
@@ -11,6 +13,7 @@ class RedisRepository {
     }
     this.collection = collection;
     this.client = redis.createClient();
+
     autoBind(this);
   }
 
@@ -30,17 +33,18 @@ class RedisRepository {
   }
 
   findAll(cb) {
-    this.client.hgetall(this.collection, (err, res) => {
+    const self = this;
+    self.client.keys(`${this.collection}|*`, (err, res) => {
       if (err) {
         return cb(err);
       }
-      res = Object.keys(res).map(x => JSON.parse(res[x]));
-      cb(null, res);
+      return async.map(res, (key, cb) => self.findOne(key.split('|')[1], cb), cb);
     });
   }
 
   findOne(id, cb) {
-    this.client.hget(this.collection, id, (err, res) => {
+    const self = this;
+    self.client.get(`${self.collection}|${id}`, (err, res) => {
       if (err) {
         return cb(err);
       }
@@ -57,9 +61,13 @@ class RedisRepository {
     }
     const id =  entity._id ? entity._id : uuid.v4();
     entity._id = id;
-    self.client.hset(self.collection, id, JSON.stringify(entity), err => {
+
+    self.client.set(`${self.collection}|${id}`, JSON.stringify(entity), err => {
       if (err) {
         return cb(err);
+      }
+      if(options.expire) {
+        self.client.expire(`${self.collection}|${id}`, options.expire);
       }
       cb(null, entity);
     });
@@ -72,7 +80,7 @@ class RedisRepository {
         return cb(err);
       }
       const modified = Object.assign({}, res, entity);
-      self.client.hset(self.collection, entity._id, JSON.stringify(modified), err => {
+      self.client.set(`${self.collection}|${entity._id}`, JSON.stringify(modified), err => {
         if (err) {
           return cb(err);
         }
@@ -83,8 +91,8 @@ class RedisRepository {
 
   remove(id, cb) {
     const self = this;
-    this.findOne(id, (err, data) => {
-      self.client.hdel(self.collection, id, err => {
+    self.findOne(id, (err, data) => {
+      self.client.del(`${self.collection}|${id}`, err => {
         if (err) {
           return cb(err);
         }
