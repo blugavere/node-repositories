@@ -1,6 +1,6 @@
 {
   "name": "@repositories/redis",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Generic IRepository implementation for Redis",
   "homepage": "",
   "scripts": {
