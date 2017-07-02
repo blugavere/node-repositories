@@ -1,10 +1,9 @@
 
 'use strict';
 
-const async = require('async');
+const asyncMap = require('async.map');
 const autoBind = require('auto-bind');
 const uuid = require('uuid');
-const redis = require('redis');
 
 class RedisRepository {
   constructor(redis, collection) {
@@ -38,7 +37,7 @@ class RedisRepository {
       if (err) {
         return cb(err);
       }
-      return async.map(res, (key, cb) => self.findOne(key.split('|')[1], cb), cb);
+      return asyncMap(res, (key, cb) => self.findOne(key.split('|')[1], cb), cb);
     });
   }
 

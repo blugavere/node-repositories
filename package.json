@@ -72,7 +72,7 @@
   "license": "MIT",
   "dependencies": {
     "@repositories/redis": "0.0.0",
-    "async": "2.5.0",
+    "async.map": "0.5.2",
     "auto-bind": "1.1.0",
     "axios": "^0.16.2",
     "cassandra-repository": "0.0.0",
