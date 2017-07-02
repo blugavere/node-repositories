@@ -6,3 +6,6 @@ tests:
 
 reset:
 	rm -rf node_modules
+
+manual:
+	mocha test **/*.test.js

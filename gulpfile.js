@@ -35,8 +35,11 @@ gulp.task('pre-test', function () {
   return gulp.src([
       'lib/**/*.js',
       '!lib/**/*.test.js',
+      'packages/*/*.js',
+      '!packages/*/*.test.js',
       'packages/*/lib/**/*.js',
-      '!packages/*/lib/**/*.test.js'
+      '!packages/*/lib/**/*.test.js',
+      '!packages/*/gulpfile.js'
     ])
     .pipe(excludeGitignore())
     .pipe(istanbul({

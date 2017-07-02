@@ -9,12 +9,9 @@ class RedisRepository {
     if (!redis || !collection) {
       throw new Error('Collection is a required param.');
     }
-
-    this.client = redis.createClient();
-
-    /** bind */
-    autoBind(this);
     this.collection = collection;
+    this.client = redis.createClient();
+    autoBind(this);
   }
 
   clear(cb) {
@@ -27,9 +24,11 @@ class RedisRepository {
       }
     });
   }
+
   disconnect() {
     this.client.quit();
   }
+
   findAll(cb) {
     this.client.hgetall(this.collection, (err, res) => {
       if (err) {
@@ -49,9 +48,16 @@ class RedisRepository {
     });
   }
 
-  add(entity, cb) {
-    entity._id = uuid.v4();
-    this.client.hset(this.collection, entity._id, JSON.stringify(entity), err => {
+  add(entity, options, cb) {
+    const self = this;
+    // handle optional options
+    if (typeof options === 'function') {
+      cb = options;
+      options = {};
+    }
+    const id =  entity._id ? entity._id : uuid.v4();
+    entity._id = id;
+    self.client.hset(self.collection, id, JSON.stringify(entity), err => {
       if (err) {
         return cb(err);
       }
@@ -61,7 +67,7 @@ class RedisRepository {
 
   update(entity, cb) {
     const self = this;
-    this.findOne(entity._id, (err, res) => {
+    self.findOne(entity._id, (err, res) => {
       if (err) {
         return cb(err);
       }
