@@ -51,9 +51,15 @@ describe('Redis Repository', () => {
       }, {
         expire: 1
       }, (err, res) => {
+        if(err) {
+          console.log(err);
+        }
         expect(res._id).toEqual('x');
         setTimeout(() => {
           repo.findOne('x', (err, res) => {
+            if(err) {
+              console.log(err);
+            }
             expect(res).toNotExist();
             done();
           });
