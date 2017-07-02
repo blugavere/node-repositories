@@ -63,7 +63,7 @@ describe('Redis Repository', () => {
             expect(res).toNotExist();
             done();
           });
-        }, 1000);
+        }, 1200);
       });
     });
   });

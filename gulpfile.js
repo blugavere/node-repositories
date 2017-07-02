@@ -58,7 +58,8 @@ gulp.task('test', ['pre-test'], cb => {
     ])
     .pipe(plumber())
     .pipe(mocha({
-      reporter: 'spec'
+      reporter: 'dot',
+      timeout: 5000
     }))
     .on('error', function (err) {
       mochaErr = err;
@@ -126,11 +127,3 @@ gulp.task('build', function () {
     }))
     .pipe(gulp.dest(base));
 });
-
-// gulp.task('watch', ['build'], function () {
-//   watch(scripts, {
-//     debounceDelay: 200
-//   }, function () {
-//     gulp.start('build');
-//   });
-// });
