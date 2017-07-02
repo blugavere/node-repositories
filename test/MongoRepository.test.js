@@ -2,7 +2,7 @@
 
 const expect = require('expect');
 const MongoClient = require('mongodb').MongoClient;
-const MongoRepository = require('../').MongoRepository;
+const MongoRepository = require('../.').MongoRepository;
 const Repo = MongoRepository;
 const assertions = require('./assertions');
 

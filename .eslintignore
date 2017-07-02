@@ -1,2 +1,4 @@
 apache-cassandra-3.10
 dist
+packages/*/node_modules
+apache-cassandra*

@@ -18,7 +18,7 @@ const newer = require('gulp-newer');
 const gutil = require('gulp-util');
 
 gulp.task('static', function () {
-  return gulp.src('**/*.js')
+  return gulp.src(['**/*.js'])
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -35,8 +35,11 @@ gulp.task('pre-test', function () {
   return gulp.src([
       'lib/**/*.js',
       '!lib/**/*.test.js',
+      'packages/*/*.js',
+      '!packages/*/*.test.js',
       'packages/*/lib/**/*.js',
-      '!packages/*/lib/**/*.test.js'
+      '!packages/*/lib/**/*.test.js',
+      '!packages/*/gulpfile.js'
     ])
     .pipe(excludeGitignore())
     .pipe(istanbul({
@@ -47,7 +50,7 @@ gulp.task('pre-test', function () {
 });
 
 gulp.task('test', ['pre-test'], cb => {
-  var mochaErr;
+  let mochaErr;
   gulp.src([
       'lib/**/*.test.js',
       'packages/**/*.test.js',
@@ -55,7 +58,8 @@ gulp.task('test', ['pre-test'], cb => {
     ])
     .pipe(plumber())
     .pipe(mocha({
-      reporter: 'spec'
+      reporter: 'dot',
+      timeout: 5000
     }))
     .on('error', function (err) {
       mochaErr = err;
@@ -123,11 +127,3 @@ gulp.task('build', function () {
     }))
     .pipe(gulp.dest(base));
 });
-
-// gulp.task('watch', ['build'], function () {
-//   watch(scripts, {
-//     debounceDelay: 200
-//   }, function () {
-//     gulp.start('build');
-//   });
-// });
