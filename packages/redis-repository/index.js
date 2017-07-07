@@ -4,6 +4,7 @@
 const asyncMap = require('async.map');
 const autoBind = require('auto-bind');
 const uuid = require('uuid');
+const noop = () => {};
 
 class RedisRepository {
   constructor(redis, collection) {
@@ -17,13 +18,13 @@ class RedisRepository {
   }
 
   clear(cb) {
-    this.client.del(this.collection, err => {
-      if (err && cb) {
-        cb(err);
+    const self = this;
+    cb = cb || noop;
+    self.client.keys(`${self.collection}|*`, (err, res) => {
+      if (err) {
+        return cb(err);
       }
-      if (cb) {
-        cb(null, true);
-      }
+      return asyncMap(res, (key, cb) => self.client.del(key, cb), cb);
     });
   }
 
