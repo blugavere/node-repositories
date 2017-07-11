@@ -1,0 +1,24 @@
+{
+  "name": "@repositories/inmem",
+  "version": "0.0.0",
+  "description": "Generic IRepository implementation using an In-Memory DB",
+  "homepage": "",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": {
+    "name": "Ben Lugavere",
+    "email": "b.lugavere@gmail.com",
+    "url": "http://benlugavere.com/#/"
+  },
+  "main": "index.js",
+  "keywords": [
+    "repository, generic, repo, irepository, IRepository, pattern, db, orm, nosql, query, datastore, data"
+  ],
+  "repository": "blugavere/node-repositories",
+  "license": "MIT",
+  "dependencies": {
+    "auto-bind": "1.1.0",
+    "uuid": "3.1.0"
+  }
+}
