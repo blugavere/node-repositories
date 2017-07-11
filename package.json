@@ -10,11 +10,11 @@
     "lint": "./node_modules/.bin/eslint ./lib",
     "test:mongo": "mocha lib/MongoRepository.test.js --watch",
     "test:repositories": "mocha lib/*.test.js --watch",
-    "test:postgres": "mocha --require babel-register --require babel-polyfill lib/PostgreRepository.test.js --watch",
+    "test:postgres": "mocha lib/PostgreRepository.test.js --watch",
     "test:redis": "mocha packages/redis-repository --watch",
     "test:ajax": "mocha ./lib/AJAXRepository.test.js --watch",
     "test:fs": "mocha lib/FSRepository.test.js --watch",
-    "test:serializers": "mocha --require babel-register --require babel-polyfill lib/Serializers/*.test.js --watch"
+    "test:serializers": "mocha lib/Serializers/*.test.js --watch"
   },
   "author": {
     "name": "Ben Lugavere",

@@ -1,7 +1,9 @@
+.PHONY: test
 
 clean:
-	rm -rf coverage dist
-tests:
+	rm -rf coverage dist .nyc_output
+
+test:
 	npm test
 
 reset:

@@ -4,3 +4,4 @@ dist
 typings
 lib/data.json
 *.log
+.nyc_output

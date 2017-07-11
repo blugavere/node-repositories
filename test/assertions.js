@@ -8,7 +8,7 @@ const add = (repo, bag) => {
   return done => {
     repo.add(bag.client, (err, res) => {
       expect(res).toExist();
-      expect(res._id).toExist();
+      expect(res._id).toExist('id should exist.');
       bag.id = res._id;
       console.log(repo.constructor.name, bag.id);
       expect(res.name).toBe(bag.client.name);
@@ -16,6 +16,7 @@ const add = (repo, bag) => {
     });
   };
 };
+
 const findAll = (repo, bag) => {
   return done => {
     repo.findAll((err, res) => {
