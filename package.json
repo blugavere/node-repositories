@@ -71,6 +71,7 @@
   "repository": "blugavere/node-repositories",
   "license": "MIT",
   "dependencies": {
+    "@repositories/inmem": "0.0.0",
     "@repositories/redis": "0.0.2",
     "async.map": "0.5.2",
     "auto-bind": "1.1.0",
