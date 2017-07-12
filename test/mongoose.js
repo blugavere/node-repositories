@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('expect');
-const Repo = require('../lib').MongooseRepository;
+const Repo = require('../src').MongooseRepository;
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
 const assertions = require('./assertions');

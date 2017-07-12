@@ -24,7 +24,7 @@
     "dist",
     "repositories.d.ts"
   ],
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "keywords": [
     "repository, generic, repo, irepository, IRepository, pattern, postgres, pg, mongoose, cassandra, redis, db, orm, nosql, query, datastore, data"
   ],

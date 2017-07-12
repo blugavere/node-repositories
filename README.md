@@ -165,7 +165,7 @@ repo.add(cat, (err, data) => {
 });
 
 // ini istead of json
-const INISerializer = require('repositories/lib/serializers/INISerializer');
+const INISerializer = require('repositories/src/serializers/INISerializer');
 repo.use(new INISerializer());
 
 // ...
