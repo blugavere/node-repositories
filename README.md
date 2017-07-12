@@ -1,10 +1,12 @@
-# repositories
+# Repositories
+
+Generic storage implementations following a common interface.
+
 [![NPM version][npm-image]][npm-url]
-[![dependencies Status][daviddm-image]][daviddm-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
 [![NPM Downloads][downloads-image]][downloads-url]
+[![dependencies Status][daviddm-image]][daviddm-url]
 [![Build Status][travis-image]][travis-url]
-[![Patreon][patreon-image]][patreon-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
 
 ## Installation 
 
@@ -172,6 +174,8 @@ repo.use(new INISerializer());
 
 ## Mongoose Repository
 
+See detailed readme [here.](./packages/mongoose-repository/README.md)
+
 ```js
 const mongoose = require('mongoose');
 const modelName = 'cats';
@@ -241,5 +245,3 @@ MIT © [Ben Lugavere]()
 [daviddm-url]: https://david-dm.org/blugavere/node-repositories
 [coveralls-image]: https://coveralls.io/repos/blugavere/node-repositories/badge.svg
 [coveralls-url]: https://coveralls.io/r/blugavere/node-repositories
-[patreon-url]: https://www.patreon.com/blugavere
-[patreon-image]: https://img.shields.io/badge/patreon-support%20the%20author-blue.svg
