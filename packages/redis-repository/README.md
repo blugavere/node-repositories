@@ -1,6 +1,5 @@
 # Redis Repository
 [![NPM version][npm-image]][npm-url]
-[![dependencies Status][daviddm-image]][daviddm-url]
 [![NPM Downloads][downloads-url]][downloads-link]
 
 ## Installation 
@@ -42,7 +41,5 @@ repo.add({ name: 'Tom' }, { expire: 5 }, (err, doc) => {
 
 [npm-image]: https://img.shields.io/npm/v/@repositories/inmem.svg
 [npm-url]: https://npmjs.org/package/@repositories/redis
-[daviddm-image]: https://david-dm.org/blugavere/@repositories/redis.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/blugavere/@repositories/redis
 [downloads-url]: https://img.shields.io/npm/dm/@repositories/redis.svg?style=flat
 [downloads-link]: https://www.npmjs.com/package/@repositories/redis
