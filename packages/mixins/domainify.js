@@ -30,6 +30,8 @@ function domainify(repo, factory) {
 
     wrap('findAll');
     wrap('findOne');
+    wrap('add');
+    wrap('update');
 
     repo.wrap = wrap;
     return repo;

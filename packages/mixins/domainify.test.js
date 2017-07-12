@@ -6,6 +6,8 @@ const expect = require('expect');
 
 // mocha packages/mixins/domainify.test.js
 
+class Cat {}
+
 const baseRepo = {
     findAll() {},
     findOne() {},
@@ -21,9 +23,9 @@ const factory = {
 
  const domainify = require('./domainify');
 
-const factoryResult = {
-    name: 'foo'
-};
+const factoryResult = new Cat();
+factoryResult.name = 'foo';
+
 const repoFindAllResult = [factoryResult];
 const repoFindOneResult = factoryResult;
 
@@ -69,6 +71,7 @@ describe('domainify', () => {
 
         const results = yield repo.findOneDetailed('foo');
         expect(results).toEqual(factoryResult);
+        expect(results instanceof Cat).toBe(true);
         expect(factory.reconstitute.called).toBe(true);
         expect(orig.calledWith('foo')).toBe(true);
     });
