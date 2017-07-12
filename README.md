@@ -17,7 +17,7 @@ $ npm install --save repositories
 Available Repositories:
 - [Redis Repository](./packages/redis-repository/README.md)
 - [In-Memory Repository](./packages/inmem-repository/README.md)
-- [AJAX Repository](##AJAX)
+- [AJAX Repository](#ajax)
 
 ## Usage
 
