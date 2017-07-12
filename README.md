@@ -1,4 +1,10 @@
-# repositories [![NPM version][npm-image]][npm-url][![dependencies Status](https://david-dm.org/blugavere/node-repositories/status.svg)](https://david-dm.org/blugavere/node-repositories) [![Coverage Status](https://coveralls.io/repos/github/blugavere/node-repositories/badge.svg?branch=master)](https://coveralls.io/github/blugavere/node-repositories?branch=master)[![NPM Downloads](https://img.shields.io/npm/dm/repositories.svg?style=flat)](https://www.npmjs.com/package/repositories)[![Build Status](https://travis-ci.org/blugavere/node-repositories.svg?branch=master)](https://travis-ci.org/blugavere/node-repositories)[![Patreon](https://img.shields.io/badge/patreon-support%20the%20author-blue.svg)](https://www.patreon.com/blugavere)
+# repositories
+[![NPM version][npm-image]][npm-url]
+[![dependencies Status][daviddm-image]][daviddm-url]
+[![Coverage Status][coveralls-image]][coveralls-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![Build Status][travis-image]][travis-url]
+[![Patreon][patreon-image]][patreon-url]
 
 ## Installation 
 
@@ -27,9 +33,10 @@ ajaxRepo.add({name:'Fido'}, (err, data) => {
 ```
 
 ## Redis
-```js
 
 See detailed readme [here.](./packages/redis-repository/README.md)
+
+```js
 
 const redis = require('redis');
 const RedisRepository = require('repositories').RedisRepository;
@@ -214,9 +221,13 @@ MIT © [Ben Lugavere]()
 
 [npm-image]: https://badge.fury.io/js/repositories.svg
 [npm-url]: https://npmjs.org/package/repositories
-[travis-image]: https://travis-ci.org/blugavere/repositories.svg?branch=master
-[travis-url]: https://travis-ci.org/blugavere/repositories
-[daviddm-image]: https://david-dm.org/blugavere/repositories.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/blugavere/repositories
-[coveralls-image]: https://coveralls.io/repos/blugavere/repositories/badge.svg
-[coveralls-url]: https://coveralls.io/r/blugavere/repositories
+[downloads-url]: https://www.npmjs.com/package/repositories
+[downloads-image]: https://img.shields.io/npm/dm/repositories.svg?style=flat
+[travis-image]: https://travis-ci.org/blugavere/node-repositories.svg?branch=master
+[travis-url]: https://travis-ci.org/blugavere/node-repositories
+[daviddm-image]: https://david-dm.org/blugavere/node-repositories.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/blugavere/node-repositories
+[coveralls-image]: https://coveralls.io/repos/blugavere/node-repositories/badge.svg
+[coveralls-url]: https://coveralls.io/r/blugavere/node-repositories
+[patreon-url]: https://www.patreon.com/blugavere
+[patreon-image]: https://img.shields.io/badge/patreon-support%20the%20author-blue.svg
