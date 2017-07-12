@@ -11,3 +11,9 @@ reset:
 
 manual:
 	mocha test **/*.test.js
+
+install:
+	node scripts/install
+
+lint:
+	./node_modules/.bin/eslint lib test packages/*/src packages/*/lib packages/*/test packages/*/*.js
