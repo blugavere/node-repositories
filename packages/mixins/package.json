@@ -1,0 +1,27 @@
+{
+  "name": "@repositories/mixins",
+  "version": "0.0.0",
+  "description": "Repository Mixins",
+  "homepage": "",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": {
+    "name": "Ben Lugavere",
+    "email": "b.lugavere@gmail.com",
+    "url": "http://benlugavere.com/#/"
+  },
+  "main": "index.js",
+  "keywords": [
+    "repository, generic, repo, irepository, IRepository, pattern, db, orm, nosql, query, datastore, data, mixins, fp"
+  ],
+  "repository": "blugavere/node-repositories",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "co-mocha": "^1.2.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.7"
+  }
+}
