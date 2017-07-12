@@ -5,7 +5,7 @@ WORKDIR /app
 ONBUILD ARG APP_VERSION
 ONBUILD ENV APP_VERSION ${APP_VERSION}
 
-COPY package.json .npmrc /tmp/
+COPY package.json /tmp/
 RUN cd /tmp && npm install --prod \
   && cp -a /tmp/node_modules /app \
   && npm cache clear

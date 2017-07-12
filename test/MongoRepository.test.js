@@ -28,9 +28,9 @@ describe('MongoDB Repository', () => {
 
   describe('Object construction', () => {
     it('should only create with the appropriate constructor', () => {
-      let createRepoNoParams = () => new Repo();
-      let createRepoOneParam = () => new Repo(connection);
-      let createRepoGood = () => new Repo(connection, collection);
+      const createRepoNoParams = () => new Repo();
+      const createRepoOneParam = () => new Repo(connection);
+      const createRepoGood = () => new Repo(connection, collection);
       expect(createRepoNoParams).toThrow();
       expect(createRepoOneParam).toThrow();
       expect(createRepoGood).toNotThrow();

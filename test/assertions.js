@@ -4,8 +4,7 @@ const expect = require('expect');
 
 const debug = false;
 
-const add = (repo, bag) => {
-  return done => {
+const add = (repo, bag) => done => {
     repo.add(bag.client, (err, res) => {
       expect(res).toExist();
       expect(res._id).toExist('id should exist.');
@@ -15,26 +14,23 @@ const add = (repo, bag) => {
       done();
     });
   };
-};
 
-const findAll = (repo, bag) => {
-  return done => {
+const findAll = (repo, bag) => done => {
     repo.findAll((err, res) => {
       expect(res).toExist();
       expect(Array.isArray(res)).toBe(true);
       expect(typeof res[0]._id).toNotBe('object');
       expect(typeof res[0]._id).toExist();
-      expect(res[0].name).toBe(bag.client.name);
+      expect(res.find(x => x._id === bag.id)).toExist();
 
       if (debug) {
         console.log(res);
       }
+
       done();
     });
   };
-};
-const findOne = (repo, bag) => {
-  return done => {
+const findOne = (repo, bag) => done => {
     repo.findOne(bag.id, (err, res) => {
       if (err) {
         console.log(err);
@@ -45,9 +41,7 @@ const findOne = (repo, bag) => {
       done();
     });
   };
-};
-const update = (repo, bag) => {
-  return done => {
+const update = (repo, bag) => done => {
     repo.update({
       _id: bag.id,
       name: 'baz'
@@ -64,9 +58,7 @@ const update = (repo, bag) => {
       done();
     });
   };
-};
-const remove = (repo, bag) => {
-  return done => {
+const remove = (repo, bag) => done => {
     repo.remove(bag.id, (err, res) => {
       expect(res).toExist();
       expect(res.name).toBe('baz');
@@ -77,23 +69,18 @@ const remove = (repo, bag) => {
       });
     });
   };
-};
 
-const disconnect = repo => {
-  return done => {
+const disconnect = repo => done => {
     expect(typeof repo.disconnect).toExist();
     expect(typeof repo.disconnect).toBe('function');
     done();
   };
-};
 
-const clear = repo => {
-  return done => {
+const clear = repo => done => {
     expect(typeof repo.clear).toExist();
     expect(typeof repo.clear).toBe('function');
     done();
   };
-};
 
 const assertions = [{
   assertion: 'should add',

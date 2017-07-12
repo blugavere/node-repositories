@@ -17,10 +17,8 @@ const schema = {
 };
 
 describe('Postgre Repository', () => {
-  let sequelize;
-  let repo;
 
-  sequelize = new Sequelize('travis', 'admin', 'admin', {
+  const sequelize = new Sequelize('travis', 'admin', 'admin', {
     host: 'localhost',
     dialect: 'postgres',
     logging: false
@@ -30,7 +28,7 @@ describe('Postgre Repository', () => {
     sequelize.define(modelName, schema);
   }
 
-  repo = new PostgreRepository(sequelize, modelName);
+  const repo = new PostgreRepository(sequelize, modelName);
 
   after(() => {
     sequelize.close();

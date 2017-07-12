@@ -2,7 +2,7 @@
 'use strict';
 const expect = require('expect');
 const redis = require('redis');
-const repositories = require('../lib');
+const repositories = require('../src');
 const RedisRepository = repositories.RedisRepository;
 
 describe('repositories', () => {

@@ -8,7 +8,7 @@ const assertions = require('../../test/assertions');
 // mocha packages/inmem-repository/index.test.js --watch
 
 describe('In-Memory Repository', () => {
-  let repo = new Repo();
+  const repo = new Repo();
   before(() => {
     repo.clear();
   });

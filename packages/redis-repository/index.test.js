@@ -6,7 +6,7 @@ const Repo = require('.');
 const Assertions = require('../../test/assertions');
 
 describe('Redis Repository', () => {
-  let repo = new Repo(redis, 'client');
+  const repo = new Repo(redis, 'client');
 
   before(() => {
     repo.clear();
@@ -51,13 +51,13 @@ describe('Redis Repository', () => {
       }, {
         expire: 1
       }, (err, res) => {
-        if(err) {
+        if (err) {
           console.log(err);
         }
         expect(res._id).toEqual('x');
         setTimeout(() => {
           repo.findOne('x', (err, res) => {
-            if(err) {
+            if (err) {
               console.log(err);
             }
             expect(res).toNotExist();

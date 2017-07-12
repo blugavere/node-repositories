@@ -33,17 +33,17 @@ describe('Filesystem Repository', () => {
   });
 
   it('should deal with relative paths', () => {
-    let repo = new Repo('./data.json');
+    const repo = new Repo('./data.json');
     expect(path.dirname(repo.path)).toEqual(__dirname);
   });
 
   it('should deal with more relative paths', () => {
-    let repo = new Repo('../data.json');
+    const repo = new Repo('../data.json');
     expect(path.dirname(repo.path)).toEqual(path.join(__dirname, '..'));
   });
 
   it('should deal with absolute paths', () => {
-    let repo = new Repo('/Users/admin/Desktop/data.json');
+    const repo = new Repo('/Users/admin/Desktop/data.json');
     expect(path.dirname(repo.path)).toEqual('/Users/admin/Desktop');
   });
 
