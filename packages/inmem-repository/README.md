@@ -1,4 +1,6 @@
-# InMem-Repository [![NPM version][npm-image]][npm-url]
+# InMem-Repository 
+[![NPM version][npm-image]][npm-url]
+![NPM Downloads][downloads-url]
 
 ## Installation 
 
@@ -12,7 +14,6 @@ $ npm install --save @repositories/inmem
 
 'use strict'
 
-const mongoose = require('mongoose');
 const InMemRepository = require('@repositories/inmem');
 
 class CatRepository extends InMemRepository {
@@ -39,19 +40,10 @@ repo.add({ name: 'Tom' }, (err, doc) => {
 
 ```
 
-## Getting Started
-
-
 ## License
 
 MIT © [Ben Lugavere](http://benlugavere.com/)
 
-
-[npm-image]: https://badge.fury.io/js/@repositories/inmem.svg
+[npm-image]: https://img.shields.io/npm/v/@repositories/inmem.svg
 [npm-url]: https://npmjs.org/package/@repositories/inmem
-[travis-image]: https://travis-ci.org/blugavere/@repositories/inmem.svg?branch=master
-[travis-url]: https://travis-ci.org/blugavere/@repositories/inmem
-[daviddm-image]: https://david-dm.org/blugavere/@repositories/inmem.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/blugavere/@repositories/inmem
-[coveralls-image]: https://coveralls.io/repos/blugavere/@repositories/inmem/badge.svg
-[coveralls-url]: https://coveralls.io/r/blugavere/@repositories/inmem
+[downloads-url]: https://img.shields.io/npm/dm/@repositories/inmem.svg?style=flat

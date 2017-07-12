@@ -29,6 +29,8 @@ ajaxRepo.add({name:'Fido'}, (err, data) => {
 ## Redis
 ```js
 
+See detailed readme [here.](./packages/redis-repository/README.md)
+
 const redis = require('redis');
 const RedisRepository = require('repositories').RedisRepository;
 
@@ -196,6 +198,10 @@ MongoClient.connect('mongodb://admin:admin@localhost:27017/travis', (err, db) =>
 }
 
 ```
+
+## In-Memory Repository
+
+See readme [here.](./packages/inmem-repository/README.md)
 
 ## Contributing
 
