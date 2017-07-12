@@ -18,6 +18,11 @@ Available Repositories:
 - [Redis Repository](./packages/redis-repository/README.md)
 - [In-Memory Repository](./packages/inmem-repository/README.md)
 - [AJAX Repository](#ajax)
+- [PostgreSQL](#postgresql)
+- [Cassandra](#cassandra)
+- [Filesystem](#filesystem-repository)
+- [Mongoose](#mongoose-repository)
+- [MongoDB Native](#mongodb-native-repository)
 
 ## Usage
 
