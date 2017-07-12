@@ -17,3 +17,11 @@ install:
 
 lint:
 	./node_modules/.bin/eslint lib test packages/*/src packages/*/lib packages/*/test packages/*/*.js
+
+coverage:
+	./node_modules/.bin/nyc report --reporter=text-lcov | coveralls
+
+test: clean
+	make lint
+	make install
+	./node_modules/.bin/nyc ./node_modules/.bin/mocha
