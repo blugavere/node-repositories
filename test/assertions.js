@@ -21,11 +21,12 @@ const findAll = (repo, bag) => done => {
       expect(Array.isArray(res)).toBe(true);
       expect(typeof res[0]._id).toNotBe('object');
       expect(typeof res[0]._id).toExist();
-      expect(res[0].name).toBe(bag.client.name);
+      expect(res.find(x => x._id === bag.id)).toExist();
 
       if (debug) {
         console.log(res);
       }
+
       done();
     });
   };

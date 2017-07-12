@@ -3,10 +3,12 @@
 clean:
 	rm -rf coverage dist .nyc_output
 
+	#  
+
 test:	clean
-	make lint
-	make install
-	./node_modules/.bin/nyc ./node_modules/.bin/mocha
+	# make lint
+	# make install
+	./node_modules/.bin/nyc ./node_modules/.bin/mocha \packages/*/lib/\**/*.test.js \packages/*/test \packages/*/\*.test.js test \src/\**/*.test.js
 
 reset:
 	rm -rf node_modules
