@@ -3,4 +3,4 @@
 	url = https://github.com/blugavere/mongoose-repository.git
 [submodule "packages/cassandra-repository"]
 	path = packages/cassandra-repository
-	url = git@github.com:blugavere/cassandra-repository.git
+	url = https://github.com/blugavere/cassandra-repository.git
