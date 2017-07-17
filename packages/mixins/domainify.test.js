@@ -3,25 +3,15 @@
 require('co-mocha');
 const sinon = require('sinon');
 const expect = require('expect');
-
+const stubs = require('./test/stubs');
 // mocha packages/mixins/domainify.test.js
+
+const baseRepo = stubs.repo;
+const factory = stubs.factory;
 
 class Cat {}
 
-const baseRepo = {
-    findAll() {},
-    findOne() {},
-    add() {},
-    update() {},
-    remove() {},
-};
-
-const factory = {
-     create() {},
-     reconstitute() {}
- };
-
- const domainify = require('./domainify');
+const domainify = require('./domainify');
 
 const factoryResult = new Cat();
 factoryResult.name = 'foo';

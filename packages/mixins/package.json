@@ -4,7 +4,7 @@
   "description": "Repository Mixins",
   "homepage": "",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha ./*.test.js test"
   },
   "author": {
     "name": "Ben Lugavere",
