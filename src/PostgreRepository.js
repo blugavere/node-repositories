@@ -1,24 +1,16 @@
-
 'use strict';
 
-const IRepository = require('./IRepository');
+const autoBind = require('auto-bind');
 
-class PostgreRepository extends IRepository {
+class PostgreRepository {
   constructor(sequelize, modelType) {
-    super(sequelize, modelType);
     this.sequelize = sequelize;
     if (modelType === undefined) {
       throw new Error('Postgre model type cannot be null.');
     }
     this.collection = sequelize.model(modelType);
 
-    this.findAll = this.findAll.bind(this);
-    this.findOne = this.findOne.bind(this);
-    this.add = this.add.bind(this);
-    this.update = this.update.bind(this);
-    this.remove = this.remove.bind(this);
-    this.clear = this.clear.bind(this);
-    this.disconnect = this.disconnect.bind(this);
+    autoBind(this);
   }
 
   /**
@@ -42,18 +34,22 @@ class PostgreRepository extends IRepository {
 
   /**
    * /get
-  */
+   */
   findAll(cb) {
-    this.collection.findAll({raw: true}).then(data => {
+    this.collection.findAll({
+      raw: true
+    }).then(data => {
       cb(null, data);
     }, err => cb(err));
   }
 
   /**
    * get /:id
-  */
+   */
   findOne(id, cb) {
-    this.collection.findById(id, {raw: true}).then(data => {
+    this.collection.findById(id, {
+      raw: true
+    }).then(data => {
       cb(null, data);
     }, err => cb(err));
   }
@@ -72,7 +68,9 @@ class PostgreRepository extends IRepository {
    */
   update(entity, cb) {
     this.collection.update(entity, {
-      where: {_id: entity._id},
+      where: {
+        _id: entity._id
+      },
       raw: true,
       returning: true
     }).then(data => {
@@ -82,11 +80,16 @@ class PostgreRepository extends IRepository {
 
   /**
    * delete
-  */
+   */
   remove(id, cb) {
     const self = this;
     self.findOne(id, (err, data) => {
-      self.collection.destroy({where: {_id: id}, raw: true}).then(() => {
+      self.collection.destroy({
+        where: {
+          _id: id
+        },
+        raw: true
+      }).then(() => {
         cb(null, data);
       }, err => cb(err));
     });

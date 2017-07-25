@@ -1,34 +1,21 @@
-
 'use strict';
 
-const IRepository = require('./IRepository');
+const autoBind = require('auto-bind');
 const fs = require('fs');
 const path = require('path');
 const stackTrace = require('stack-trace');
 const JSONSerializer = require('./Serializers/JSONSerializer');
 const uuid = require('uuid');
 
-class FSRepository extends IRepository {
+class FSRepository {
   constructor(filePath, strategy) {
-    super(filePath, strategy);
     const trace = stackTrace.get();
     const caller = trace[1].getFileName();
     if (!path) throw new Error('File path is required.');
-
-    this.path = path.isAbsolute(filePath) ? filePath : path.join(path.dirname(caller), filePath);//filePath;
-
+    this.path = path.isAbsolute(filePath) ? filePath : path.join(path.dirname(caller), filePath);
     this.strategy = strategy || new JSONSerializer();
-    this.setStrategy = this.setStrategy.bind(this);
-    this.read = this.read.bind(this);
-    this.write = this.write.bind(this);
 
-    this.findAll = this.findAll.bind(this);
-    this.findOne = this.findOne.bind(this);
-    this.add = this.add.bind(this);
-    this.update = this.update.bind(this);
-    this.remove = this.remove.bind(this);
-    this.clear = this.clear.bind(this);
-
+    autoBind(this);
   }
 
   setStrategy(strategy) {
@@ -43,7 +30,7 @@ class FSRepository extends IRepository {
     cb(null, fs.writeFileSync(this.path, this.strategy.serialize(''), 'utf-8'));
   }
 
-  disconnect(){
+  disconnect() {
 
   }
 
