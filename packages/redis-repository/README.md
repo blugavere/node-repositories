@@ -15,18 +15,19 @@ $ npm install --save @repositories/redis
 'use strict';
 
 const redis = require('redis');
+const client = redis.createClient();
 const RedisRepository = require('@repositories/redis');
 
 class TodoRepository extends RedisRepository {
-  constructor(redis){
-    super(redis, 'todos');
+  constructor(client){
+    super(client, 'todos');
   }
   // custom implementations
 }
 
 // or if you dont need custom functionality
 
-const repo = new RedisRepository(redis, 'todos');
+const repo = new RedisRepository(client, 'todos');
 
 repo.add({ name: 'Tom' }, (err, doc) => {
   console.log(doc);
