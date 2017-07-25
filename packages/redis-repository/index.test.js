@@ -6,9 +6,10 @@ const Repo = require('.');
 const Assertions = require('../../test/assertions');
 
 describe('Redis Repository', () => {
-  const repo = new Repo(redis, 'client');
-
+  let repo;
   before(() => {
+    const client = redis.createClient();
+    repo = new Repo(client, 'client');
     repo.clear();
   });
 

@@ -1,22 +1,16 @@
 {
   "name": "@repositories/redis",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Generic IRepository implementation for Redis",
   "homepage": "",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha ./*.test.js"
   },
   "author": {
     "name": "Ben Lugavere",
     "email": "b.lugavere@gmail.com",
     "url": "http://benlugavere.com/#/"
   },
-  "contributors": [
-    {
-      "name": "Tobias Kahse",
-      "email": "tobias.kahse@outlook.com"
-    }
-  ],
   "files": [
     "index.js"
   ],

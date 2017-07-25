@@ -7,12 +7,12 @@ const uuid = require('uuid');
 const noop = () => {};
 
 class RedisRepository {
-  constructor(redis, collection) {
-    if (!redis || !collection) {
+  constructor(client, collection) {
+    if (!client || !collection) {
       throw new Error('Collection is a required param.');
     }
     this.collection = collection;
-    this.client = redis.createClient();
+    this.client = client;
 
     autoBind(this);
   }
