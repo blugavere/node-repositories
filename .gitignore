@@ -2,6 +2,6 @@ node_modules
 coverage
 dist
 typings
-lib/data.json
+src/data.json
 *.log
 .nyc_output
