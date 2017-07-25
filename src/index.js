@@ -3,10 +3,9 @@
 
 const PostgreRepository = require('./PostgreRepository');
 const FSRepository = require('./FSRepository');
-const AJAXRepository = require('./AJAXRepository');
 
 module.exports = {
-  AJAXRepository,
+  AJAXRepository: require('@repositories/ajax'),
   CassandraRepository: require('cassandra-repository'),
   InMemRepository: require('@repositories/inmem'),
   FSRepository,

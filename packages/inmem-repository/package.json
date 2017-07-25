@@ -4,7 +4,7 @@
   "description": "Generic IRepository implementation using an In-Memory DB",
   "homepage": "",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha ./*.test.js"
   },
   "author": {
     "name": "Ben Lugavere",

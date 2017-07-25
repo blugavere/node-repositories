@@ -22,3 +22,17 @@ lint:
 
 coverage:
 	./node_modules/.bin/nyc report --reporter=text-lcov | coveralls
+
+t:
+	(cd ./packages/$(filter-out $@,$(MAKECMDGOALS))-repository; NODE_ENV=test npm test;)
+
+l:
+	(cd ./packages/$(filter-out $@,$(MAKECMDGOALS))-repository; npm link;)
+	npm link @repositories/$(filter-out $@,$(MAKECMDGOALS))
+
+p:
+	make t $(filter-out $@,$(MAKECMDGOALS))
+	(cd ./packages/$(filter-out $@,$(MAKECMDGOALS))-repository; npm publish --access public;)
+
+%:
+	@:

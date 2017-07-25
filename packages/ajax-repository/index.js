@@ -1,15 +1,11 @@
 'use strict';
 
 const autoBind = require('auto-bind');
-const IRepository = require('./IRepository');
 const axios = require('axios');
 
-class AJAXRepository extends IRepository {
+class AJAXRepository {
   constructor(urlRoot) {
-    super(urlRoot);
-
     this.root = urlRoot;
-
     autoBind(this);
   }
 

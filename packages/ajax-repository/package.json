@@ -1,0 +1,35 @@
+{
+  "name": "@repositories/ajax",
+  "version": "0.0.0",
+  "description": "Generic IRepository implementation using an external resource.",
+  "homepage": "",
+  "scripts": {
+    "test": "mocha ./*.test.js"
+  },
+  "author": {
+    "name": "Ben Lugavere",
+    "email": "b.lugavere@gmail.com",
+    "url": "http://benlugavere.com/#/"
+  },
+  "main": "index.js",
+  "keywords": [
+    "repository, generic, repo, irepository, IRepository, pattern, db, orm, nosql, query, datastore, data, ajax, axios"
+  ],
+  "repository": "blugavere/node-repositories",
+  "license": "MIT",
+  "devDependencies": {
+    "axios-mock-adapter": "^1.7.0",
+    "co-mocha": "1.2.0",
+    "mocha": "3.4.2"
+  },
+  "dependencies": {
+    "auto-bind": "1.1.0",
+    "axios": "0.16.2",
+    "uuid": "3.1.0"
+  }, 
+  "optionalDependencies": {
+    "bluebird": "3.5.0",
+    "superagent": "3.5.2",
+    "superagent-bluebird-promise": "4.2.0"
+  }
+}

@@ -29,7 +29,6 @@
     "repository, generic, repo, irepository, IRepository, pattern, postgres, pg, mongoose, cassandra, redis, db, orm, nosql, query, datastore, data"
   ],
   "devDependencies": {
-    "axios-mock-adapter": "^1.7.0",
     "coveralls": "2.13.1",
     "eslint": "^3.1.1",
     "eslint-config-xo-space": "^0.14.0",
@@ -49,11 +48,11 @@
   "repository": "blugavere/node-repositories",
   "license": "MIT",
   "dependencies": {
+    "@repositories/ajax": "0.0.0",
     "@repositories/inmem": "0.0.0",
     "@repositories/redis": "0.0.2",
     "async.map": "0.5.2",
     "auto-bind": "1.1.0",
-    "axios": "0.16.2",
     "cassandra-repository": "0.0.0",
     "ini": "1.3.4",
     "mongodb-repository": "0.0.0",
