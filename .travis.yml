@@ -8,6 +8,7 @@ cache:
   bundler: true
   directories:
   - node_modules
+  - apache-cassandra
 services:
   - mongodb
   - postgresql
