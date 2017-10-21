@@ -3,10 +3,11 @@
 clean:
 	rm -rf coverage dist .nyc_output
 
-test:	clean
+test:	clean bootstrap
 	make lint
-	make install
-	NODE_PATH=./packages ./node_modules/.bin/nyc ./node_modules/.bin/mocha \packages/*/lib/\**/*.test.js \packages/*/test \packages/*/\*.test.js test \src/\**/*.test.js
+	# make install
+	# NODE_PATH=./packages ./node_modules/.bin/nyc ./node_modules/.bin/mocha \packages/*/lib/\**/*.test.js \packages/*/test \packages/*/\*.test.js test \src/\**/*.test.js
+	lerna run test
 
 reset:
 	rm -rf node_modules
@@ -40,3 +41,4 @@ p:
 
 bootstrap:
 	lerna bootstrap
+
