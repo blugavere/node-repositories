@@ -76,7 +76,6 @@ describe('Mongoose Repository', () => {
     });
 
 
-
     describe('findOne', () => {
       it('should return an object', done => {
         Model.findOne.returns(Model);
@@ -260,9 +259,7 @@ describe('Mongoose Repository', () => {
         Model.create.yields(null, new Model());
         return repo.add({}).then(res => {
           expect(Model.create.called).toBe(true, 'create method not called');
-          expect(typeof res).toEqual('object');
-          // expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
         });
       });
     });

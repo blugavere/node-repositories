@@ -1,5 +1,7 @@
 
+.PHONY: test
+
 clean:
 	rm -rf coverage dist
-tests:
-	npm test
+test:
+	./node_modules/.bin/gulp

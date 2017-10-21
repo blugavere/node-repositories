@@ -6,7 +6,7 @@ const transformProps = require('transform-props');
 
 const castToString = arg => String(arg);
 
-const parse = doc => transformProps(doc, castToString, '_id');
+const parse = doc => doc && transformProps(doc, castToString, '_id');
 
 /**
  * IRepository implementation for Mongoose
@@ -101,8 +101,8 @@ class MongooseRepository {
       if (err) {
         return done(err);
       }
-      const obj = JSON.parse(JSON.stringify(res));
-      done(null, obj);
+      parse(res);
+      done(null, res);
     }), cb);
   }
 
@@ -126,7 +126,8 @@ class MongooseRepository {
         if (err) {
           return done(err);
         }
-        done(null, parse(res));
+        parse(res);
+        done(null, res);
       }), cb);
   }
 
@@ -146,7 +147,8 @@ class MongooseRepository {
       if (err) {
         return done(err);
       }
-      done(null, parse(res));
+      parse(res);
+      done(null, res);
     }), cb);
   }
 

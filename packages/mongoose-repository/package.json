@@ -6,7 +6,7 @@
   "scripts": {
     "docker": "docker-compose -f docker-compose.yml up --abort-on-container-exit",
     "prepublish": "gulp prepublish",
-    "test": "gulp",
+    "test": "make test",
     "lint": "./node_modules/.bin/eslint ./lib"
   },
   "author": {
