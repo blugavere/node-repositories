@@ -5,18 +5,22 @@ const expect = require('expect');
 const Mockgoose = require('mock-mongoose-model');
 const mongoose = require('mongoose');
 const sinon = require('sinon');
-
 const MongooseRepository = require('.');
 
 /**
  * to run this test standalone:
- * mocha lib/index.test.js --watch
+ * NODE_ENV=test mocha packages/mongoose-repository/lib/index.test.js --watch
  */
+const check = res => {
+  expect(typeof res).toEqual('object');
+  expect(typeof res._id).toBeA('string');
+};
 
 describe('Mongoose Repository', () => {
   let repo;
   let sandbox;
   const Model = Mockgoose;
+  let _id;
 
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
@@ -70,19 +74,23 @@ describe('Mongoose Repository', () => {
         });
       });
     });
+
+
+
     describe('findOne', () => {
       it('should return an object', done => {
         Model.findOne.returns(Model);
         Model.lean.returns(Model);
-        Model.exec.yields(null, new Model());
+        Model.exec.yields(null, {
+          _id
+        });
+
         repo.findOne('foo', (err, res) => {
           assert(!err);
           expect(Model.findOne.called).toBe(true, 'findOne');
           expect(Model.lean.called).toBe(true);
           expect(Model.exec.called).toBe(true);
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
           done();
         });
       });
@@ -105,9 +113,7 @@ describe('Mongoose Repository', () => {
         repo.add({}, (err, res) => {
           assert(!err);
           expect(Model.create.called).toBe(true, 'create method not called');
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
           done();
         });
       });
@@ -129,8 +135,7 @@ describe('Mongoose Repository', () => {
           assert(!err);
           expect(Model.findByIdAndRemove.called).toBe(true, 'remove method not called');
           expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
           done();
         });
       });
@@ -154,9 +159,7 @@ describe('Mongoose Repository', () => {
             console.log(err);
           }
           expect(Model.findByIdAndUpdate.called).toBe(true, 'create method not called');
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
           done();
         });
       });
@@ -183,9 +186,7 @@ describe('Mongoose Repository', () => {
             console.log(err);
           }
           expect(Model.findOneAndUpdate.called).toBe(true);
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
           done();
         });
       });
@@ -208,8 +209,7 @@ describe('Mongoose Repository', () => {
             console.log(err);
           }
           expect(Model.remove.called).toBe(true, 'remove method not called');
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
+          check(res);
           expect(res).toEqual({});
           done();
         });
@@ -241,7 +241,7 @@ describe('Mongoose Repository', () => {
       });
     });
 
-    describe.only('findOne', () => {
+    describe('findOne', () => {
       it('should return an object', () => {
         Model.findOne.returns(Model);
         Model.lean.returns(Model);
@@ -250,9 +250,7 @@ describe('Mongoose Repository', () => {
           expect(Model.findOne.called).toBe(true);
           expect(Model.lean.called).toBe(true);
           expect(Model.exec.called).toBe(true);
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
         });
       });
     });
@@ -263,7 +261,7 @@ describe('Mongoose Repository', () => {
         return repo.add({}).then(res => {
           expect(Model.create.called).toBe(true, 'create method not called');
           expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
+          // expect(res instanceof Mockgoose).toEqual(false);
           expect(res).toEqual({});
         });
       });
@@ -277,9 +275,7 @@ describe('Mongoose Repository', () => {
         }, (err, res) => {
           assert(!err);
           expect(Model.findByIdAndRemove.called).toBe(true, 'remove method not called');
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
         });
       });
     });
@@ -291,9 +287,7 @@ describe('Mongoose Repository', () => {
           _id: 'foo'
         }).then(res => {
           expect(Model.findByIdAndUpdate.called).toBe(true, 'create method not called');
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
         });
       });
     });
@@ -303,9 +297,7 @@ describe('Mongoose Repository', () => {
         Model.findOneAndUpdate.yields(null, new Model());
         return repo.patch('abc', {}).then(res => {
           expect(Model.findOneAndUpdate.called).toBe(true);
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
         });
       });
     });
@@ -316,9 +308,7 @@ describe('Mongoose Repository', () => {
         Model.remove.yields(null, {});
         return repo.clear().then(res => {
           expect(Model.remove.called).toBe(true, 'remove method not called');
-          expect(typeof res).toEqual('object');
-          expect(res instanceof Mockgoose).toEqual(false);
-          expect(res).toEqual({});
+          check(res);
         });
       });
     });

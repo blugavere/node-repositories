@@ -85,7 +85,6 @@ class MongooseRepository {
       if (err) {
         return done(err);
       }
-      console.log('wtf', res);
       parse(res);
       done(null, res);
     }), cb);
