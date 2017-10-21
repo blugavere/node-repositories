@@ -36,3 +36,7 @@ p:
 
 %:
 	@:
+
+
+bootstrap:
+	lerna bootstrap
