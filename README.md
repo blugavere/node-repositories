@@ -7,6 +7,7 @@ Generic storage implementations following a common interface.
 [![dependencies Status][daviddm-image]][daviddm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coverage Status][coveralls-image]][coveralls-url]
+[![lerna][lerna-image]][learna-url]
 
 ## Installation 
 
@@ -245,3 +246,6 @@ MIT © [Ben Lugavere]()
 [daviddm-url]: https://david-dm.org/blugavere/node-repositories
 [coveralls-image]: https://coveralls.io/repos/blugavere/node-repositories/badge.svg
 [coveralls-url]: https://coveralls.io/r/blugavere/node-repositories
+
+[lerna-image]: https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg
+[learna-url]: https://lernajs.io/
