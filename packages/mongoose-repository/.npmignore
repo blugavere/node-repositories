@@ -1,0 +1,25 @@
+#source
+lib
+
+#tests
+*.test.js
+test
+coverage
+.istanbul.yml
+
+#build tools
+.travis.yml
+.jenkins.yml
+.codeclimate.yml
+docker-compose.yml
+
+#linters
+.jscsrc
+.jshintrc
+.eslintrc*
+
+#editor settings
+.idea
+.editorconfig
+mongoose-repository.d.ts
+jsconfig.json

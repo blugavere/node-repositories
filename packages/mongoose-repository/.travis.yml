@@ -1,0 +1,17 @@
+language: node_js
+sudo: required
+node_js:
+- v6
+- v5
+- v4
+cache:
+  bundler: true
+  directories:
+  - node_modules
+services:
+- docker
+script:
+- npm run docker
+env:
+  global:
+    secure: POd3EPJvqiXmr41TvKa/ZiQsK2oWQ4PmKw3TzfdJQywH3/GwyyXk55qnKVcEnQXaDex7cxEESAGxPd2Rttl8lUeupEb3nbd4GHkq4wTYrTSn8woUm8bj4alLBsz2WFdk7igtQvsyIYlaFK/Xobf2C/P6RXs1qYJbaofiDj134ki8Jr5n1fsnx8V3N7ARc9o9iNvChE1LWWn/mOkvWEiHLNt/gqCFP9n1ujuhQerzHhbhaUCeoy7BQDUugllrh3ckaBqofGbfgB7tUHi+1j74yWpW9hj8qPYLer5xGNULXNCrhFUEa3ZKLFZFiKgYBxzdV8jFv3/qujRl5fvC6jHO7JOPb7cjj9sj6auahTE8lOot5FLBckGRpRNd9nPmEkstMWHVaEw12SOahCWdxLllldJqlUlYXqRkZHnHU86GNPDCzjcKCQXygPk65gHP5ERm1sj2pd4yjKp9YuoJD1c9fmLVomKV33q8KuishocSxB/GoZKobSX70D3RCL+9WS9JUC9ZoJhZzo7wgvLIIPvAAh3yZhx+3TaUxZ+buRengUwh9Uhpx66gvVHXFpcIXgmyZ4aD90+PEONM6GA81Uc1VbAF7ZgFChWCXmkssiI1qGpsbCYpLvMt20v9A1M0RLqnjdO6Yqr7x2T+jH0ymX6Rje7610yN1GSI2wcbX2bGjqo=

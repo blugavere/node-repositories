@@ -1,0 +1,25 @@
+version: '2'
+services:
+    app:
+        build: .
+        depends_on:
+          - mongo
+        volumes:
+            - .:/app
+        command: npm test
+        environment:
+            - NODE_ENV=docker
+            - CI=true
+            - TRAVIS_REPO_SLUG=blugavere/mongoose-repository
+            - TRAVIS=true
+            - COVERALLS_SERVICE_NAME=travis-ci
+            - COVERALLS_REPO_TOKEN=${COVERALLS}
+            - TRAVIS_JOB_ID=${TRAVIS_JOB_ID}
+            - CI_BRANCH=${TRAVIS_BRANCH}
+            - CI_BUILD_NUMBER=${TRAVIS_BUILD_NUMBER}
+            - CI_PULL_REQUEST=${TRAVIS_PULL_REQUEST}
+    mongo:
+        hostname: mongo
+        image: mongo:latest
+        ports:
+            - "27018:27017"

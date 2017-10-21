@@ -1,0 +1,52 @@
+{
+  "name": "mongoose-repository",
+  "version": "0.1.0",
+  "description": "Generic IRepository implementation for MongoDB using Mongoose",
+  "homepage": "",
+  "scripts": {
+    "docker": "docker-compose -f docker-compose.yml up --abort-on-container-exit",
+    "prepublish": "gulp prepublish",
+    "test": "gulp",
+    "lint": "./node_modules/.bin/eslint ./lib"
+  },
+  "author": {
+    "name": "Ben Lugavere",
+    "email": "b.lugavere@gmail.com",
+    "url": "http://benlugavere.com/#/"
+  },
+  "typings": "mongoose-repository.d.ts",
+  "files": [
+    "dist",
+    "mongoose-repository.d.ts"
+  ],
+  "main": "dist/index.js",
+  "keywords": [
+    "repository, generic, repo, irepository, IRepository, pattern, mongoose, db, orm, nosql, query, datastore, data"
+  ],
+  "devDependencies": {
+    "del": "^2.0.2",
+    "eslint": "^3.1.1",
+    "eslint-plugin-import": "^2.0.0",
+    "expect": "^1.20.2",
+    "gulp": "^3.9.0",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "isparta": "^4.0.0",
+    "mock-mongoose-model": "0.0.2",
+    "mongoose": "^4.6.3",
+    "sinon": "^2.1.0"
+  },
+  "repository": "blugavere/mongoose-repository",
+  "license": "MIT",
+  "dependencies": {
+    "auto-bind": "^1.1.0",
+    "polygoat": "1.1.4",
+    "transform-props": "1.0.1"
+  }
+}
