@@ -3,7 +3,7 @@
 
 const PostgreRepository = require('./PostgreRepository');
 const Sequelize = require('sequelize');
-const Assertions = require('../test/assertions');
+const Assertions = require('../../test/assertions');
 
 const modelName = 'clients';
 

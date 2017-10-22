@@ -9,7 +9,7 @@ const INISerializer = serializers.INISerializer;
 
 const expect = require('expect');
 const fs = require('fs');
-const assertions = require('../test/assertions');
+const assertions = require('../../test/assertions');
 
 describe('Filesystem Repository', () => {
   const iniSerializer = new INISerializer();

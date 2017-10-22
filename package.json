@@ -4,7 +4,6 @@
   "description": "Generic IRepository implementation for common data stores in node.js",
   "homepage": "",
   "scripts": {
-    "docker": "docker-compose -f docker-compose.yml up",
     "test": "make test",
     "lint": "./node_modules/.bin/eslint ./lib"
   },
