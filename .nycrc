@@ -3,6 +3,9 @@
   "include": [
     "packages/**/*.js"
   ],
+  "exclude": [
+    "packages/*/test/**"
+  ],
   "sourceMap": false,
   "instrument": false
 }
