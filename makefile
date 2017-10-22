@@ -1,13 +1,22 @@
-.PHONY: test
+.PHONY: test bootstrap clean dist
+
+export NODE_ENV = test
+export FORCE_COLOR = true
 
 clean:
 	rm -rf coverage dist .nyc_output
 
+pretest:
+	tsc test/*.ts --module commonjs --sourcemap
+posttest: 
+	nyc report --reporter=json && codecov -f coverage/*.json
+
 test:	clean bootstrap
-	make lint
+	# make lint
 	# make install
 	# NODE_PATH=./packages ./node_modules/.bin/nyc ./node_modules/.bin/mocha \packages/*/lib/\**/*.test.js \packages/*/test \packages/*/\*.test.js test \src/\**/*.test.js
-	lerna run test
+	# lerna run test
+	./node_modules/.bin/nyc ./node_modules/.bin/_mocha --opts .mocharc
 
 reset:
 	rm -rf node_modules
@@ -22,6 +31,7 @@ lint:
 	./node_modules/.bin/eslint src test packages/*/src packages/*/src packages/*/test packages/*/*.js
 
 coverage:
+	./node_modules/.bin/nyc report --reporter=json && codecov -f coverage/*.json
 	./node_modules/.bin/nyc report --reporter=text-lcov | coveralls
 
 t:

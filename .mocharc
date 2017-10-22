@@ -1,0 +1,3 @@
+--exit
+--full-trace
+packages/**!(node_modules)/*.test.js

@@ -5,3 +5,4 @@ typings
 src/data.json
 *.log
 .nyc_output
+/packages/*/node_modules
