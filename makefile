@@ -1,4 +1,4 @@
-.PHONY: test bootstrap clean dist
+.PHONY: test bootstrap clean dist coverage .nyc_output
 
 export NODE_ENV = test
 export FORCE_COLOR = true
