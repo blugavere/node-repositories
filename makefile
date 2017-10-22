@@ -4,7 +4,7 @@ export NODE_ENV = test
 export FORCE_COLOR = true
 
 clean:
-	rm -rf coverage dist .nyc_output
+	rm -rf coverage dist .nyc_output *.log
 
 pretest:
 	tsc test/*.ts --module commonjs --sourcemap
