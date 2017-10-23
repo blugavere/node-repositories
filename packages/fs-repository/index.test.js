@@ -12,7 +12,7 @@ const fs = require('fs');
 const assertions = require('../../test/assertions');
 
 /**
- * mocha packages/fs-repository/index.test.js
+ * ./node_modules/.bin/nyc mocha packages/fs-repository/index.test.js
  */
 
  describe('Filesystem Repository', () => {

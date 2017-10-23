@@ -8,6 +8,7 @@ clean:
 
 pretest:
 	tsc test/*.ts --module commonjs --sourcemap
+
 posttest: 
 	nyc report --reporter=json && codecov -f coverage/*.json
 
@@ -52,3 +53,5 @@ p:
 bootstrap:
 	lerna bootstrap
 
+ltest:
+	./node_modules/.bin/nyc lerna run test

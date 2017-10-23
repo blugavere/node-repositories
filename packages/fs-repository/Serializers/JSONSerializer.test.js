@@ -4,6 +4,8 @@
 const expect = require('expect');
 const Serializer = require('./JSONSerializer');
 
+// ./node_modules/.bin/nyc mocha packages/fs-repository/Serializers/JSONSerializer.test.js
+
 describe('JSON Serializer', () => {
   const serializer = new Serializer();
   const cat = { name: 'Fido' };

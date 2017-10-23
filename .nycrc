@@ -1,13 +1,8 @@
 {
-  "all": true,
   "include": [
-    "packages/**/*.js"
+    "packages/**"
   ],
   "exclude": [
-    "**/gulpfile.js",
-    "packages/*/test/**",
-    "packages/*/dist/**",
-    "packages/**/*.test.js"
   ],
   "sourceMap": true,
   "instrument": true

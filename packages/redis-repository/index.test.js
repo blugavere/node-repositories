@@ -5,7 +5,7 @@ const redis = require('redis');
 const Repo = require('.');
 const Assertions = require('../../test/assertions');
 
-// NODE_ENV=test mocha packages/redis-repository/index.test.js
+// NODE_ENV=test ./node_modules/.bin/nyc mocha packages/redis-repository/index.test.js
 
 describe('Redis Repository', () => {
   let repo;

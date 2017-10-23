@@ -4,7 +4,7 @@
   "description": "Generic IRepository implementation for FS",
   "homepage": "",
   "scripts": {
-    "test": "mocha ./*.test.js"
+    "test": "mocha --opts .mocharc"
   },
   "author": {
     "name": "Ben Lugavere",
