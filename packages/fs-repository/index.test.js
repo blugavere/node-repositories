@@ -1,7 +1,7 @@
 
 'use strict';
 
-const Repo = require('./FSRepository');
+const Repo = require('.');
 const path = require('path');
 const serializers = require('./Serializers');
 
@@ -11,7 +11,11 @@ const expect = require('expect');
 const fs = require('fs');
 const assertions = require('../../test/assertions');
 
-describe('Filesystem Repository', () => {
+/**
+ * mocha packages/fs-repository/index.test.js
+ */
+
+ describe('Filesystem Repository', () => {
   const iniSerializer = new INISerializer();
   let repo;
   const client = {

@@ -1,7 +1,7 @@
 {
-  "name": "@repositories/redis",
+  "name": "@repositories/fs",
   "version": "1.0.0",
-  "description": "Generic IRepository implementation for Redis",
+  "description": "Generic IRepository implementation for FS",
   "homepage": "",
   "scripts": {
     "test": "mocha ./*.test.js"
@@ -16,7 +16,7 @@
   ],
   "main": "index.js",
   "keywords": [
-    "repository, generic, repo, irepository, IRepository, pattern, redis, db, orm, nosql, query, datastore, data"
+    "repository, generic, repo, irepository, IRepository, pattern, fs, db, orm, nosql, query, datastore, data"
   ],
   "devDependencies": {},
   "repository": "blugavere/node-repositories",

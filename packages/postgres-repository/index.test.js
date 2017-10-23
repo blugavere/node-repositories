@@ -1,7 +1,7 @@
 
 'use strict';
 
-const PostgreRepository = require('./PostgreRepository');
+const PostgreRepository = require('.');
 const Sequelize = require('sequelize');
 const Assertions = require('../../test/assertions');
 

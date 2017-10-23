@@ -4,8 +4,11 @@
     "packages/**/*.js"
   ],
   "exclude": [
-    "packages/*/test/**"
+    "**/gulpfile.js",
+    "packages/*/test/**",
+    "packages/*/dist/**",
+    "packages/**/*.test.js"
   ],
-  "sourceMap": false,
-  "instrument": false
+  "sourceMap": true,
+  "instrument": true
 }
