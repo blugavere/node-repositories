@@ -2,9 +2,9 @@
   "name": "repositories",
   "version": "0.7.2",
   "description": "Generic IRepository implementation for common data stores in node.js",
-  "homepage": "",
   "scripts": {
-    "test": "make test",
+    "pretest": "lerna bootstrap",
+    "test": "NODE_ENV=test nyc mocha --opts .mocharc",
     "lint": "./node_modules/.bin/eslint ./lib"
   },
   "author": {
