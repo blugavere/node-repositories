@@ -65,6 +65,13 @@ repo.add(cat, (err, data) => {
 
 ```
 
+## Contributing
+
+### Roadmap
+
+- Pre / Post fetch hooks
+- Mixin Apis
+- Deprecate usage of mongoose global (unneccesary)
 
 ## License
 

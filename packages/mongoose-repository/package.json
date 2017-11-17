@@ -1,6 +1,6 @@
 {
   "name": "mongoose-repository",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generic IRepository implementation for MongoDB using Mongoose",
   "homepage": "",
   "scripts": {
