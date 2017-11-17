@@ -41,7 +41,7 @@
     "mongoose": "^4.6.3",
     "sinon": "^2.1.0"
   },
-  "repository": "blugavere/mongoose-repository",
+  "repository": "blugavere/node-repositories",
   "license": "MIT",
   "dependencies": {
     "auto-bind": "^1.1.0",
