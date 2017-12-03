@@ -17,7 +17,7 @@ test:	clean bootstrap
 	# make install
 	# NODE_PATH=./packages ./node_modules/.bin/nyc ./node_modules/.bin/mocha \packages/*/lib/\**/*.test.js \packages/*/test \packages/*/\*.test.js test \src/\**/*.test.js
 	# lerna run test
-	NODE_ENv=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha --opts .mocharc
+	NODE_ENV=test ./node_modules/.bin/nyc ./node_modules/.bin/mocha --opts .mocharc
 
 reset:
 	rm -rf node_modules
