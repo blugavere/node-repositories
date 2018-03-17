@@ -9,7 +9,7 @@ const MongoRepository = require('../lib');
  * node examples/01.js
  */
 
-let connStr = 'mongodb://localhost/test';
+const connStr = 'mongodb://localhost/test';
 
 const collection = 'clients';
 
