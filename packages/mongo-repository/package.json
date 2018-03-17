@@ -1,0 +1,49 @@
+{
+  "name": "@repositories/mongo",
+  "version": "0.0.0",
+  "description": "Generic IRepository implementation for MongoDB",
+  "homepage": "",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp",
+    "lint": "./node_modules/.bin/eslint ./lib"
+  },
+  "author": {
+    "name": "Ben Lugavere",
+    "email": "b.lugavere@gmail.com",
+    "url": "http://benlugavere.com/#/"
+  },
+  "contributors": [],
+  "typings": "mongo-repository.d.ts",
+  "files": [
+    "dist",
+    "mongo-repository.d.ts"
+  ],
+  "main": "dist/index.js",
+  "keywords": [
+    "repository, generic, repo, irepository, IRepository, pattern, mongo, db, orm, nosql, query, datastore, data"
+  ],
+  "devDependencies": {
+    "@types/chai": "4.1.2",
+    "@types/mongodb": "3.0.8",
+    "@types/node": "9.4.7",
+    "del": "^2.0.2",
+    "eslint": "^3.1.1",
+    "eslint-plugin-import": "^2.0.0",
+    "expect": "^1.20.2",
+    "gulp": "^3.9.0",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "isparta": "^4.0.0",
+    "mongodb": "^2.2.10",
+    "sinon": "^2.1.0"
+  },
+  "repository": "blugavere/mongodb-repository",
+  "license": "MIT"
+}
