@@ -1,19 +1,31 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "target": "es5",
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": false,
     "module": "commonjs",
-    "lib": ["es2015", "dom"],
     "moduleResolution": "node",
-    "sourceMap": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
+    "lib": [
+      "es2017"
+    ],
+    "target": "es5",
+    "strict": true,
+    "outDir": "./dist",
+    "preserveConstEnums": true,
     "removeComments": true,
+    "inlineSourceMap": false,
     "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true  
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
   },
   "include": [
-    "lib/**/*",    
-    "examples/**/*"
+    "lib/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "gulpfile"
   ]
 }

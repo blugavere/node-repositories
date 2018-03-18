@@ -1,30 +1,24 @@
 'use strict';
 
-const autoBind = require('auto-bind');
-const pg = require('polygoat');
-const transformProps = require('transform-props');
+import autoBind from 'auto-bind';
+import pg from 'polygoat';
+import transformProps from 'transform-props';
+import {
+  Model, Document
+} from 'mongoose';
 
-const castToString = arg => String(arg);
-
+const castToString = (arg): string => String(arg);
 const parse = doc => doc && transformProps(doc, castToString, '_id');
 
 /**
  * IRepository implementation for Mongoose
  * @class MongooseRepository
  */
-class MongooseRepository {
-  constructor(mongoose, model) {
-    if (!mongoose || !model) {
+class MongooseRepository<T> {
+  constructor(private collection: Model<Document>) {
+    if (!collection) {
       throw new Error('Mongoose model type cannot be null.');
     }
-    this.mongoose = mongoose;
-
-    if (typeof model === 'string') {
-      this.collection = mongoose.model(model);
-    } else {
-      this.collection = model;
-    }
-
     autoBind(this);
   }
 
@@ -33,7 +27,7 @@ class MongooseRepository {
    * @param {function} cb - callback
    * @returns {void}
    */
-  clear(cb) {
+  clear(cb?) {
     return pg(done => this.collection.find({}).remove(done), cb);
   }
 
@@ -52,7 +46,8 @@ class MongooseRepository {
    * @returns {void}
    */
   disconnect(cb) {
-    return pg(done => this.mongoose.connection.close(done), cb);
+    const { db: connection } = this.collection;
+    return pg(done => connection.close(done), cb);
   }
 
   /**
@@ -61,8 +56,9 @@ class MongooseRepository {
    * @param {function} cb - callback
    * @returns {void}
    */
-  findAll(cb) {
-    return pg(done => this.collection.find({}).exec((err, res) => {
+  findAll(cb?) {
+    const { collection } = this;
+    return pg(done => collection.find({}).exec((err, res) => {
       if (err) {
         return done(err);
       }
@@ -77,7 +73,7 @@ class MongooseRepository {
    * @param {function} cb - callback
    * @returns {void}
    */
-  findOne(id, cb) {
+  findOne(id: string, cb?) {
     const self = this;
     return pg(done => self.collection.findOne({
       _id: id
@@ -96,7 +92,7 @@ class MongooseRepository {
    * @param {function} cb - callback
    * @returns {void}
    */
-  add(entity, cb) {
+  add(entity, cb?) {
     return pg(done => this.collection.create(entity, (err, res) => {
       if (err) {
         return done(err);
@@ -113,14 +109,13 @@ class MongooseRepository {
    * @param {function} cb - callback
    * @returns {void}
    */
-  patch(id, obj, cb) {
+  patch(id: string, obj, cb?) {
     return pg(done => this.collection.findOneAndUpdate({
         _id: id
       }, {
         $set: obj
       }, {
-        new: true,
-        lean: true
+        new: true
       },
       (err, res) => {
         if (err) {
@@ -137,12 +132,11 @@ class MongooseRepository {
    * @param {function} cb - callback
    * @returns {void} - async
    */
-  update(entity, cb) {
-    const self = this;
-    return pg(done => self.collection.findByIdAndUpdate(entity._id, entity, {
+  update(entity, cb?) {
+    const { collection } = this;
+    return pg(done => collection.findByIdAndUpdate(entity._id, entity, {
       new: true,
-      passRawResult: true,
-      lean: true
+      rawResult: true
     }).exec((err, res) => {
       if (err) {
         return done(err);
@@ -158,7 +152,7 @@ class MongooseRepository {
    * @param {function} cb - callback
    * @returns {void} - async
    */
-  remove(id, cb) {
+  remove(id: string, cb?) {
     const self = this;
     return pg(done => self.collection.findByIdAndRemove(id, (err, res) => {
       if (err) {
@@ -169,4 +163,4 @@ class MongooseRepository {
   }
 }
 
-module.exports = MongooseRepository;
+export default MongooseRepository;

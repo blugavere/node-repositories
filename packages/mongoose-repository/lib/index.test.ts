@@ -1,24 +1,25 @@
 'use strict';
 
-const assert = require('assert');
-const expect = require('expect');
-const Mockgoose = require('mock-mongoose-model');
-const mongoose = require('mongoose');
-const sinon = require('sinon');
-const MongooseRepository = require('.');
+import assert from 'assert';
+import expect from 'expect';
+import Mockgoose from 'mock-mongoose-model';
+import mongoose, { Mongoose } from 'mongoose';
+import sinon, { SinonSandbox } from 'sinon';
+import MongooseRepository from '.';
 
 /**
  * to run this test standalone:
- * NODE_ENV=test mocha packages/mongoose-repository/lib/index.test.js --watch
+ * NODE_ENV=test mocha packages/mongoose-repository/lib/index.test.ts --watch
  */
-const check = res => {
+
+ const check = res => {
   expect(typeof res).toEqual('object');
   expect(typeof res._id).toBeA('string');
 };
 
 describe('Mongoose Repository', () => {
-  let repo;
-  let sandbox;
+  let repo: MongooseRepository<any>;
+  let sandbox: SinonSandbox;
   const Model = Mockgoose;
   let _id;
 
@@ -29,21 +30,15 @@ describe('Mongoose Repository', () => {
         sandbox.stub(Model, i);
       }
     }
-    repo = new MongooseRepository(mongoose, Model);
+    repo = new MongooseRepository(Model);
   });
 
   afterEach(() => sandbox.restore());
 
   describe('Object construction', () => {
     it('should fail if you create it with no param', () => {
-      expect(() => new MongooseRepository()).toThrow();
-    });
-    it('should take a string arg', () => {
-      sandbox.stub(mongoose, 'model').returns(Model);
-      expect(() => new MongooseRepository(mongoose, 'Cat')).toNotThrow(); //getting mongoose model
-    });
-    it('should should take a func arg', () => {
-      expect(() => new MongooseRepository(mongoose, () => {})).toNotThrow();
+      const Repo = MongooseRepository as any;
+      expect(() => new Repo()).toThrow();
     });
   });
 
@@ -128,9 +123,7 @@ describe('Mongoose Repository', () => {
     describe('remove', () => {
       it('should remove an object', done => {
         Model.findByIdAndRemove.yields(null, new Model());
-        repo.remove({
-          _id: 'foo'
-        }, (err, res) => {
+        repo.remove('foo', (err, res) => {
           assert(!err);
           expect(Model.findByIdAndRemove.called).toBe(true, 'remove method not called');
           expect(typeof res).toEqual('object');
@@ -267,9 +260,7 @@ describe('Mongoose Repository', () => {
     describe('remove', () => {
       it('should remove an object', () => {
         Model.findByIdAndRemove.yields(null, new Model());
-        return repo.remove({
-          _id: 'foo'
-        }, (err, res) => {
+        return repo.remove('foo', (err, res) => {
           assert(!err);
           expect(Model.findByIdAndRemove.called).toBe(true, 'remove method not called');
           check(res);

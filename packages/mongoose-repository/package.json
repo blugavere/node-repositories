@@ -2,10 +2,9 @@
   "name": "mongoose-repository",
   "version": "0.2.0",
   "description": "Generic IRepository implementation for MongoDB using Mongoose",
-  "homepage": "",
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "make test",
+    "test": "./node_modules/.bin/nyc --reporter=text --reporter=html --reporter=lcov ./node_modules/.bin/gulp",
     "lint": "./node_modules/.bin/eslint ./lib"
   },
   "author": {
@@ -23,23 +22,25 @@
     "repository, generic, repo, irepository, IRepository, pattern, mongoose, db, orm, nosql, query, datastore, data"
   ],
   "devDependencies": {
+    "@types/expect": "1.20.3",
+    "@types/mocha": "2.2.48",
+    "@types/mongoose": "5.0.7",
+    "@types/node": "9.4.7",
+    "@types/sinon": "4.3.0",
+    "coveralls": "3.0.0",
     "del": "^2.0.2",
-    "eslint": "^3.1.1",
-    "eslint-plugin-import": "^2.0.0",
     "expect": "^1.20.2",
     "gulp": "^3.9.0",
-    "gulp-coveralls": "^0.1.0",
-    "gulp-eslint": "^3.0.1",
-    "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^1.0.0",
     "gulp-line-ending-corrector": "^1.0.1",
     "gulp-mocha": "^2.0.0",
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
-    "isparta": "^4.0.0",
     "mock-mongoose-model": "0.0.2",
     "mongoose": "^4.6.3",
-    "sinon": "^2.1.0"
+    "nyc": "11.6.0",
+    "sinon": "^2.1.0",
+    "ts-node": "5.0.1",
+    "typescript": "2.7.2"
   },
   "repository": "blugavere/node-repositories",
   "license": "MIT",
