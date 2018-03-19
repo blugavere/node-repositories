@@ -1,9 +1,9 @@
 'use strict';
 
-const assert = require('assert');
-const expect = require('expect');
+import assert from 'assert';
+import expect from 'expect';
 
-const add = (repo, bag) => done => {
+export const add = (repo, bag) => done => {
   repo.add(bag.client, (err, res) => {
     assert(!err);
     expect(res).toExist();
@@ -14,7 +14,8 @@ const add = (repo, bag) => done => {
     done();
   });
 };
-const findAll = repo => done => {
+
+export const findAll = repo => done => {
   repo.findAll((err, res) => {
     assert(!err);
     expect(res).toExist();
@@ -23,7 +24,8 @@ const findAll = repo => done => {
     done();
   });
 };
-const findOne = (repo, bag) => done => {
+
+export const findOne = (repo, bag) => done => {
   repo.findOne(bag.id, (err, res) => {
     if (err) {
       console.log(err);
@@ -34,7 +36,8 @@ const findOne = (repo, bag) => done => {
     done();
   });
 };
-const update = (repo, bag) => done => {
+
+export const update = (repo, bag) => done => {
   repo.update({
     _id: bag.id,
     name: 'baz'
@@ -48,7 +51,8 @@ const update = (repo, bag) => done => {
     done();
   });
 };
-const remove = (repo, bag) => done => {
+
+export const remove = (repo, bag) => done => {
   repo.remove(bag.id, (err, res) => {
     assert(!err);
     expect(res).toExist();
@@ -62,19 +66,19 @@ const remove = (repo, bag) => done => {
   });
 };
 
-const disconnect = repo => done => {
+export const disconnect = repo => done => {
   expect(typeof repo.disconnect).toExist();
   expect(typeof repo.disconnect).toBe('function');
   done();
 };
 
-const clear = repo => done => {
+export const clear = repo => done => {
   expect(typeof repo.clear).toExist();
   expect(typeof repo.clear).toBe('function');
   done();
 };
 
-const assertions = [{
+export const assertions = [{
   assertion: 'should add',
   method: add,
 }, {
@@ -96,13 +100,3 @@ const assertions = [{
   assertion: 'should be able to truncate',
   method: clear,
 }];
-module.exports = {
-  assertions,
-  add,
-  findAll,
-  findOne,
-  update,
-  remove,
-  disconnect,
-  clear
-};

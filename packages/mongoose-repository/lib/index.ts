@@ -10,15 +10,20 @@ import {
 const castToString = (arg): string => String(arg);
 const parse = doc => doc && transformProps(doc, castToString, '_id');
 
+export interface IRepositoryOptions {
+
+}
+
 /**
  * IRepository implementation for Mongoose
  * @class MongooseRepository
  */
-class MongooseRepository<T> {
-  constructor(private collection: Model<Document>) {
+class MongooseRepository<T = {}> {
+  constructor(private collection: Model<Document>, options: IRepositoryOptions = {}) {
     if (!collection) {
       throw new Error('Mongoose model type cannot be null.');
     }
+
     autoBind(this);
   }
 
@@ -36,7 +41,7 @@ class MongooseRepository<T> {
    * @param {function} cb - callback
    * @returns {void}
    */
-  count(cb) {
+  count(cb?): Promise<number> {
     return pg(done => this.collection.count(done), cb);
   }
 
@@ -45,7 +50,7 @@ class MongooseRepository<T> {
    * @param {function} cb - callback
    * @returns {void}
    */
-  disconnect(cb) {
+  disconnect(cb?): Promise<void> {
     const { db: connection } = this.collection;
     return pg(done => connection.close(done), cb);
   }
@@ -56,7 +61,7 @@ class MongooseRepository<T> {
    * @param {function} cb - callback
    * @returns {void}
    */
-  findAll(cb?) {
+  findAll(cb?): Promise<any[]> {
     const { collection } = this;
     return pg(done => collection.find({}).exec((err, res) => {
       if (err) {

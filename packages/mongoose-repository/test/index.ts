@@ -1,11 +1,11 @@
 'use strict';
 
-const mongoose = require('mongoose');
-const Repo = require('../lib');
-const Assertions = require('./assertions');
-const expect = require('expect');
+import mongoose from 'mongoose';
+import { assertions } from './assertions';
+import expect from 'expect';
+import MongooseRepository from '../lib';
 
-mongoose.Promise = Promise;
+(mongoose as any).Promise = Promise;
 
 const modelName = 'cats';
 const schema = new mongoose.Schema({
@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
   }
 });
 
-if (!mongoose.modelSchemas[modelName]) {
+if (!(mongoose as any).modelSchemas[modelName]) {
   mongoose.model(modelName, schema);
 }
 
@@ -28,10 +28,12 @@ if (process.env.NODE_ENV === 'docker') {
 }
 
 describe('Mongoose Repository', () => {
-  let repo;
+  let repo: MongooseRepository;
   before(done => {
-    repo = new Repo(mongoose, modelName);
+    const Model = mongoose.model(modelName)
+    repo = new MongooseRepository(Model);
     const db = mongoose.connection;
+
     db.once('open', () => {
       done();
     });
@@ -41,8 +43,8 @@ describe('Mongoose Repository', () => {
     });
   });
 
-  after(() => {
-    repo.disconnect();
+  after(async () => {
+    await repo.disconnect();
   });
 
   describe('generic assertions', () => {
@@ -52,7 +54,7 @@ describe('Mongoose Repository', () => {
     const bag = {
       client
     };
-    Assertions.assertions.forEach(x => {
+    assertions.forEach(x => {
       it(x.assertion, done => {
         x.method(repo, bag)(done);
       });
@@ -64,7 +66,7 @@ describe('Mongoose Repository', () => {
     it('testing count method', done => {
       expect(typeof repo.count).toExist();
       expect(typeof repo.count).toBe('function');
-      repo.count((err, count) => {
+      repo.count((err, count: number) => {
         expect(err).toNotExist();
         expect(Number.isNaN(count)).toBe(false);
         done();
