@@ -37,9 +37,9 @@ export const findOne = (repo, bag) => done => {
   });
 };
 
-export const update = (repo, bag) => done => {
+export const update = (repo, {id:_id}) => done => {
   repo.update({
-    _id: bag.id,
+    _id,
     name: 'baz'
   }, (err, res) => {
     if (err) {
@@ -52,13 +52,13 @@ export const update = (repo, bag) => done => {
   });
 };
 
-export const remove = (repo, bag) => done => {
-  repo.remove(bag.id, (err, res) => {
+export const remove = (repo, {id}) => done => {
+  repo.remove(id, (err, res) => {
     assert(!err);
     expect(res).toExist();
     expect(res.name).toBe('baz');
     expect(typeof res._id).toNotBe('object');
-    repo.findOne(bag.id, (err, res) => {
+    repo.findOne(id, (err, res) => {
       assert(!err);
       expect(res).toNotExist();
       done();

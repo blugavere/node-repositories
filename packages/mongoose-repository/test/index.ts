@@ -19,9 +19,10 @@ if (!(mongoose as any).modelSchemas[modelName]) {
 }
 
 /**
- * NODE_ENV=test mocha test/index.js --watch
+ * mocha test/index.ts --opts .mocharc --watch
  */
-let connStr = 'mongodb://localhost/test';
+
+ let connStr = 'mongodb://localhost/test';
 if (process.env.NODE_ENV === 'docker') {
   console.log('Using docker configuration!');
   connStr = 'mongodb://mongo:27017/test';

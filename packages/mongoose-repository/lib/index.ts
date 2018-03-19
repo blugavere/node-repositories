@@ -63,13 +63,16 @@ class MongooseRepository<T = {}> {
    */
   findAll(cb?): Promise<any[]> {
     const { collection } = this;
-    return pg(done => collection.find({}).exec((err, res) => {
-      if (err) {
-        return done(err);
-      }
-      res.forEach(parse);
-      return done(null, res);
-    }), cb);
+    return pg(done => collection
+      .find({})
+      .lean()
+      .exec((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        res.forEach(parse);
+        return done(null, res);
+      }), cb);
   }
 
   /**
@@ -80,7 +83,8 @@ class MongooseRepository<T = {}> {
    */
   findOne(id: string, cb?) {
     const self = this;
-    return pg(done => self.collection.findOne({
+    const { collection } = this;
+    return pg(done => collection.findOne({
       _id: id
     }).lean().exec((err, res) => {
       if (err) {
@@ -98,13 +102,18 @@ class MongooseRepository<T = {}> {
    * @returns {void}
    */
   add(entity, cb?) {
-    return pg(done => this.collection.create(entity, (err, res) => {
-      if (err) {
-        return done(err);
-      }
-      parse(res);
-      done(null, res);
-    }), cb);
+    const { collection } = this;
+    return pg(done => collection
+      .collection
+      .insertOne(entity, (err, res) => {
+        if (err) {
+          return done(err);
+        }
+        const { ops } = res;
+        const [doc] = ops;
+        parse(doc);
+        done(null, doc);
+      }), cb);
   }
 
   /**
@@ -115,14 +124,17 @@ class MongooseRepository<T = {}> {
    * @returns {void}
    */
   patch(id: string, obj, cb?) {
-    return pg(done => this.collection.findOneAndUpdate({
+    const { collection } = this;
+    return pg(done => collection
+      .findOneAndUpdate({
         _id: id
       }, {
-        $set: obj
-      }, {
-        new: true
-      },
-      (err, res) => {
+          $set: obj
+        }, {
+          new: true
+        })
+      .lean()
+      .exec((err, res) => {
         if (err) {
           return done(err);
         }
@@ -141,8 +153,7 @@ class MongooseRepository<T = {}> {
     const { collection } = this;
     return pg(done => collection.findByIdAndUpdate(entity._id, entity, {
       new: true,
-      rawResult: true
-    }).exec((err, res) => {
+    }).lean().exec((err, res) => {
       if (err) {
         return done(err);
       }
@@ -159,12 +170,16 @@ class MongooseRepository<T = {}> {
    */
   remove(id: string, cb?) {
     const self = this;
-    return pg(done => self.collection.findByIdAndRemove(id, (err, res) => {
-      if (err) {
-        return done(err);
-      }
-      done(null, parse(res));
-    }), cb);
+    return pg(done => self
+      .collection
+      .findByIdAndRemove(id)
+      .lean()
+      .exec((err, res) => {
+        if (err) {
+          return done(err);
+        }
+        done(null, parse(res));
+      }), cb);
   }
 }
 
