@@ -48,7 +48,9 @@
     "redis": "2.6.2",
     "sequelize": "3.24.3",
     "sinon": "2.1.0",
-    "typescript": "2.5.3"
+    "source-map-support": "0.5.4",
+    "ts-node": "5.0.1",
+    "typescript": "2.7.2"
   },
   "repository": "blugavere/node-repositories",
   "license": "MIT",

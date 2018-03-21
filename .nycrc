@@ -1,8 +1,18 @@
 {
+  "report-dir": "./coverage",
+  "require": [
+    "ts-node/register",
+    "source-map-support/register"
+  ],
+  "extension": [
+    ".ts",
+    ".js"
+  ],
   "include": [
     "packages/**"
   ],
   "exclude": [
+    "gulpfile.js"
   ],
   "sourceMap": true,
   "instrument": true
