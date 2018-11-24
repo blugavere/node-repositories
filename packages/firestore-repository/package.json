@@ -1,5 +1,5 @@
 {
-  "name": "@repositories/firebase",
+  "name": "@repositories/firestore",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
@@ -20,7 +20,7 @@
   "author": {
     "name": "Ben Lugavere",
     "email": "b.lugavere@gmail.com",
-    "url": "http://benlugavere.com/#/"
+    "url": "http://benlugavere.com"
   },
   "license": "ISC",
   "devDependencies": {

@@ -50,6 +50,8 @@
     "sinon": "2.1.0",
     "source-map-support": "0.5.9",
     "ts-node": "7.0.1",
+    "tslint": "5.11.0",
+    "tslint-no-unused-expression-chai": "0.1.4",
     "typescript": "3.1.6"
   },
   "repository": "blugavere/node-repositories",

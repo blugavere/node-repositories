@@ -1,0 +1,16 @@
+{
+    "extends": "tslint:recommended",
+    "rules": {
+        "variable-name": false,
+        "object-literal-sort-keys": false,
+        "no-console": false,
+        "no-unused-expression-chai": true,
+        "no-unused-expression": false,
+        "ordered-imports": false,
+        "no-shadowed-variable": false,
+        "comment-format": false
+    },
+    "rulesDirectory": [
+        "tslint-no-unused-expression-chai"
+    ]
+}
