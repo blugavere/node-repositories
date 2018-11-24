@@ -4,7 +4,7 @@
   "description": "Generic IRepository implementation for common data stores in node.js",
   "scripts": {
     "pretest": "lerna bootstrap",
-    "test": "NODE_ENV=test nyc mocha --opts .mocharc",
+    "test": "lerna run test --parallel",
     "lint": "./node_modules/.bin/eslint ./lib"
   },
   "author": {
@@ -48,6 +48,8 @@
     "redis": "2.6.2",
     "sequelize": "3.24.3",
     "sinon": "2.1.0",
+    "source-map-support": "0.5.9",
+    "ts-node": "7.0.1",
     "typescript": "3.1.6"
   },
   "repository": "blugavere/node-repositories",

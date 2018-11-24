@@ -1,3 +1,5 @@
+--require ts-node/register
+--require source-map-support/register
 packages/**!(node_modules)/*.test.js 
 packages/*/test/** 
 packages/*/*.test.js
