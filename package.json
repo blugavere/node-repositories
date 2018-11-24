@@ -2,9 +2,9 @@
   "name": "repositories",
   "version": "0.7.2",
   "description": "Generic IRepository implementation for common data stores in node.js",
-  "homepage": "",
   "scripts": {
-    "test": "make test",
+    "pretest": "lerna bootstrap",
+    "test": "NODE_ENV=test nyc mocha --opts .mocharc",
     "lint": "./node_modules/.bin/eslint ./lib"
   },
   "author": {
@@ -38,7 +38,6 @@
     "eslint-config-xo-space": "^0.14.0",
     "eslint-plugin-import": "2.3.0",
     "expect": "1.20.2",
-    "express-cassandra": "1.4.2",
     "lerna": "^2.4.0",
     "mocha": "3.4.2",
     "mock-mongoose-model": "0.0.2",

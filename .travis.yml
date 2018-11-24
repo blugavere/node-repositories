@@ -1,9 +1,6 @@
 language: node_js
 sudo: required
-node_js:
-  - v6
-  - v5
-  - v4
+node_js: 8
 cache:
   bundler: true
   directories:
@@ -25,12 +22,12 @@ addons:
     packages:
       - oracle-java8-installer
       - mongodb-org
-before_install:
-  - sudo update-java-alternatives -s java-8-oracle
-  - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-  - java -version
-  - sudo rm -rf /var/lib/cassandra/*
-  - wget http://www.us.apache.org/dist/cassandra/3.11.0/apache-cassandra-3.11.0-bin.tar.gz && tar -xvzf apache-cassandra-3.11.0-bin.tar.gz
-  - sudo sh ./apache-cassandra-3.11.0/bin/cassandra -R
-  - sleep 20
+# before_install:
+#   - sudo update-java-alternatives -s java-8-oracle
+#   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+#   - java -version
+#   - sudo rm -rf /var/lib/cassandra/*
+#   - wget http://www.us.apache.org/dist/cassandra/3.11.0/apache-cassandra-3.11.0-bin.tar.gz && tar -xvzf apache-cassandra-3.11.0-bin.tar.gz
+#   - sudo sh ./apache-cassandra-3.11.0/bin/cassandra -R
+#   - sleep 20
 after_success: make coverage

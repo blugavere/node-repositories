@@ -1,11 +1,11 @@
 {
-  "name": "mongoose-repository",
-  "version": "0.2.0",
-  "description": "Generic IRepository implementation for MongoDB using Mongoose",
+  "name": "@repositories/mongo",
+  "version": "0.0.0",
+  "description": "Generic IRepository implementation for MongoDB",
   "homepage": "",
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "make test",
+    "test": "gulp",
     "lint": "./node_modules/.bin/eslint ./lib"
   },
   "author": {
@@ -13,16 +13,20 @@
     "email": "b.lugavere@gmail.com",
     "url": "http://benlugavere.com/#/"
   },
-  "typings": "mongoose-repository.d.ts",
+  "contributors": [],
+  "typings": "mongo-repository.d.ts",
   "files": [
     "dist",
-    "mongoose-repository.d.ts"
+    "mongo-repository.d.ts"
   ],
   "main": "dist/index.js",
   "keywords": [
-    "repository, generic, repo, irepository, IRepository, pattern, mongoose, db, orm, nosql, query, datastore, data"
+    "repository, generic, repo, irepository, IRepository, pattern, mongo, db, orm, nosql, query, datastore, data"
   ],
   "devDependencies": {
+    "@types/chai": "4.1.2",
+    "@types/mongodb": "3.0.8",
+    "@types/node": "9.4.7",
     "del": "^2.0.2",
     "eslint": "^3.1.1",
     "eslint-plugin-import": "^2.0.0",
@@ -37,15 +41,9 @@
     "gulp-nsp": "^2.1.0",
     "gulp-plumber": "^1.0.0",
     "isparta": "^4.0.0",
-    "mock-mongoose-model": "0.0.2",
-    "mongoose": "^4.6.3",
+    "mongodb": "^2.2.10",
     "sinon": "^2.1.0"
   },
-  "repository": "blugavere/node-repositories",
-  "license": "MIT",
-  "dependencies": {
-    "auto-bind": "^1.1.0",
-    "polygoat": "1.1.4",
-    "transform-props": "1.0.1"
-  }
+  "repository": "blugavere/mongodb-repository",
+  "license": "MIT"
 }
