@@ -1,4 +1,0 @@
-instrumentation:
-    excludes:
-      - '**/packages/*/*.test.js'
-      - '**/packages/*/test'

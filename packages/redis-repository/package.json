@@ -9,7 +9,7 @@
   "author": {
     "name": "Ben Lugavere",
     "email": "b.lugavere@gmail.com",
-    "url": "http://benlugavere.com/#/"
+    "url": "http://benlugavere.com"
   },
   "files": [
     "index.js"
@@ -22,9 +22,9 @@
   "repository": "blugavere/node-repositories",
   "license": "MIT",
   "dependencies": {
-    "async.map": "^0.5.2",
-    "auto-bind": "1.1.0",
+    "async.map": "0.5.2",
+    "auto-bind": "1.2.1",
     "polygoat": "1.1.4",
-    "uuid": "3.1.0"
+    "uuid": "3.3.2"
   }
 }

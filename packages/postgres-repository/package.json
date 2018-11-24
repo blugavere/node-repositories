@@ -1,7 +1,7 @@
 {
-  "name": "@repositories/fs",
+  "name": "@repositories/postgres",
   "version": "1.0.0",
-  "description": "Generic IRepository implementation for FS",
+  "description": "Generic IRepository implementation for Postgres",
   "homepage": "",
   "scripts": {
     "test": "mocha ./*.test.js"
