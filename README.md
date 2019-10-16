@@ -18,6 +18,8 @@ $ npm install --save repositories
 ## Overview
 
 Available Repositories:
+- [Google Firebase Repository](./packages/firebase-repository/README.md)
+- [Google Cloud Firestore Repository](./packages/firestore-repository/README.md)
 - [Redis Repository](./packages/redis-repository/README.md)
 - [In-Memory Repository](./packages/inmem-repository/README.md)
 - [AJAX Repository](#ajax)
