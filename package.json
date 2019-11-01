@@ -46,7 +46,7 @@
     "nyc": "11.0.3",
     "pg": "6.2.4",
     "redis": "2.6.2",
-    "sequelize": "3.24.3",
+    "sequelize": "5.15.1",
     "sinon": "2.1.0",
     "source-map-support": "0.5.9",
     "ts-node": "7.0.1",
