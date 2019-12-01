@@ -38,7 +38,7 @@
     "gulp-plumber": "^1.0.0",
     "isparta": "^4.0.0",
     "mock-mongoose-model": "0.0.2",
-    "mongoose": "^4.6.3",
+    "mongoose": "^5.7.5",
     "sinon": "^2.1.0"
   },
   "repository": "blugavere/node-repositories",
